@@ -61,7 +61,7 @@ async function storeDocumentsInPinecone(filepath: string) {
 	const loader = new PDFLoader(filepath);
 
 	const rawDocs = await loader.load();
-  console.log(rawDocs);
+  // console.log(rawDocs);
     
 	/* Split text into chunks */
 	const textSplitter = new RecursiveCharacterTextSplitter({

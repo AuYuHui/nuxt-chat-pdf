@@ -75,8 +75,6 @@ async function handleQuery() {
     loading.value = false;
     prompt.value = "";
   } catch (error) {
-    loading.value = false;
-    prompt.value = "";
     console.log("error", error);
   }
 }
