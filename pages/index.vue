@@ -1,23 +1,12 @@
 <template>
-  <div class="flex h-full">
+  <div class="flex h-full gap-3">
     <div class="max-w-200px overflow-hidden">
       <Upload></Upload>
     </div>
     <div class="flex-1">
       <Chat :history="history"></Chat>
-      <el-input
-        v-model="prompt"
-        type="textarea"
-        :rows="3"
-        resize="none"
-        placeholder="Please input"
-      />
-      <el-button
-        type="primary"
-        class="mt-2"
-        :loading="loading"
-        :disabled="loading"
-        @click="handleQuery"
+      <el-input v-model="prompt" type="textarea" :rows="3" resize="none" placeholder="Please input" />
+      <el-button type="primary" class="mt-2" :loading="loading" :disabled="loading" @click="handleQuery"
         >发送</el-button
       >
     </div>
@@ -68,7 +57,6 @@ async function handleQuery() {
             content: (text += data.data),
           };
         }
-        console.log("[event]", event.data);
       },
     });
 
