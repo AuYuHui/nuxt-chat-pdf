@@ -56,7 +56,7 @@ async function storeDocumentsInPinecone(filepath: string, mimetype: string) {
         verbose: true,
       },
       {
-        basePath: "https://openai.wndbac.cn/v1",
+        basePath: config.OPENAI_PROXY_URL,
       }
     );
     const pineconeIndex = pinecone.Index(config.PINECONE_INDEX_NAME);

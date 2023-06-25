@@ -3,28 +3,29 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: 'nuxt-chat-pdf',
+      title: "nuxt-chat-pdf",
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
-          hid: 'description',
-          name: 'description',
-          content: 'ElementPlus + Nuxt3',
+          hid: "description",
+          name: "description",
+          content: "ElementPlus + Nuxt3",
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    }
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
   },
 
   runtimeConfig: {
-		OPENAI_API_KEY: '',
-		PINECONE_API_KEY: '',
-		PINECONE_ENVIRONMENT: '',
-		PINECONE_INDEX_NAME: ''
-	},
+    OPENAI_API_KEY: "",
+    OPENAI_PROXY_URL: "",
+    PINECONE_API_KEY: "",
+    PINECONE_ENVIRONMENT: "",
+    PINECONE_INDEX_NAME: "",
+  },
 
   // css
-  css: ['@unocss/reset/tailwind.css','~/assets/scss/index.scss'],
+  css: ["@unocss/reset/tailwind.css", "~/assets/scss/index.scss"],
 
   typescript: {
     strict: true,
@@ -32,13 +33,7 @@ export default defineNuxtConfig({
   },
 
   // build modules
-  modules: [
-    '@vueuse/nuxt',
-    '@unocss/nuxt',
-    '@pinia/nuxt',
-    '@element-plus/nuxt',
-    '@nuxtjs/color-mode'
-  ],
+  modules: ["@vueuse/nuxt", "@unocss/nuxt", "@pinia/nuxt", "@element-plus/nuxt", "@nuxtjs/color-mode"],
 
   // vueuse
   vueuse: {
@@ -47,7 +42,7 @@ export default defineNuxtConfig({
 
   // colorMode
   colorMode: {
-    classSuffix: '',
+    classSuffix: "",
   },
 
   unocss: {
@@ -67,8 +62,8 @@ export default defineNuxtConfig({
     },
   },
   elementPlus: {
-    icon: 'ElIcon',
-    importStyle: 'scss',
-    themes: ['dark'],
+    icon: "ElIcon",
+    importStyle: "scss",
+    themes: ["dark"],
   },
-})
+});

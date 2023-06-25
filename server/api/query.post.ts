@@ -6,10 +6,12 @@ import { VectorDBQAChain } from "langchain/chains";
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  setHeader(event, "cache-control", "no-cache");
-  setHeader(event, "connection", "keep-alive");
-  setHeader(event, "content-type", "text/event-stream");
-
+  const headers = {
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
+    Connection: "keep-alive",
+  };
+  setHeaders(event, headers);
   const body = await readBody<{
     prompt: string;
     history: any[];
@@ -21,7 +23,7 @@ export default defineEventHandler(async (event) => {
     new OpenAIEmbeddings(
       { openAIApiKey: config.OPENAI_API_KEY },
       {
-        basePath: "https://openai.wndbac.cn/v1",
+        basePath: config.OPENAI_PROXY_URL,
       }
     ),
     {
@@ -44,7 +46,7 @@ export default defineEventHandler(async (event) => {
       maxConcurrency: 5,
     },
     {
-      basePath: "https://openai.wndbac.cn/v1",
+      basePath: config.OPENAI_PROXY_URL,
     }
   );
   const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
@@ -53,6 +55,8 @@ export default defineEventHandler(async (event) => {
   });
 
   const sendData = (data: string) => {
+    event.node.res.write(`id: ${Date.now()}\n`);
+    event.node.res.write("type: message\n");
     event.node.res.write(`data: ${data}\n\n`);
   };
 
