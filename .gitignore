@@ -4,7 +4,6 @@
 .nitro
 .cache
 dist
-*.pdf
 
 # Node dependencies
 node_modules
@@ -23,3 +22,4 @@ logs
 .env.*
 !.env.example
 
+docs/
