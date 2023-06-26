@@ -1,5 +1,6 @@
-import { copyFileSync } from "node:fs";
-import { join } from "node:path";
+import { copyFileSync, existsSync, mkdirSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "url";
 import { readFiles } from "h3-formidable";
 import { PineconeClient } from "@pinecone-database/pinecone";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
@@ -9,6 +10,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { DocxLoader } from "langchain/document_loaders/fs/docx";
 import { JSONLoader } from "langchain/document_loaders/fs/json";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineEventHandler(async (event) => {
   const {
     files: {
@@ -17,8 +19,8 @@ export default defineEventHandler(async (event) => {
   } = await readFiles(event, {
     includeFields: true,
   });
+  createFile();
   const newPath = `${join("docs", newFilename)}.${mimetype.split("/")[1]}`;
-  console.log({ filepath, mimetype, newFilename });
 
   copyFileSync(filepath, newPath);
   await storeDocumentsInPinecone(filepath, mimetype);
@@ -101,4 +103,14 @@ async function storeDocumentsInPinecone(filepath: string, mimetype: string) {
       reject(error);
     }
   });
+}
+
+function createFile() {
+  // 创建文件夹路径
+  const folderPath = join("docs");
+  // 检查文件夹是否已经存在
+  if (!existsSync(folderPath)) {
+    // 如果文件夹不存在，就创建它
+    mkdirSync(folderPath);
+  }
 }
