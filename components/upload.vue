@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { genFileId } from "element-plus";
-import type { UploadInstance, UploadProps, UploadRawFile, UploadUserFile } from "element-plus";
+import type {
+  UploadInstance,
+  UploadProps,
+  UploadRawFile,
+  UploadUserFile,
+} from "element-plus";
 
 export interface Props {
   limit?: number;
@@ -9,6 +14,13 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   limit: 1,
 });
+
+interface Emit {
+  (e: "success", collection: string): void;
+}
+
+const emit = defineEmits<Emit>();
+
 const accept =
   "application/pdf,.pdf,application/json,.json,text/plain,.txt,application/vnd.openxmlformats-officedocument.presentationml.presentation,.pptx,application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,";
 
@@ -49,8 +61,9 @@ function handleHttpRequest() {
       method: "POST",
       body: fd,
     })
-      .then(() => {
+      .then((res) => {
         ElMessage.success("上传成功");
+        emit("success", res.collection);
         resolve(true);
         loading.value = false;
       })
@@ -83,7 +96,9 @@ function handleUpload() {
       <el-icon class="el-icon--upload"><ElIconUploadFilled /></el-icon>
       <div class="el-upload__text">上传文件 <em>.txt .pdf .docx</em></div>
     </el-upload>
-    <el-button type="primary" @click.stop="handleUpload" :disabled="loading"> 上传文件 </el-button>
+    <el-button type="primary" @click.stop="handleUpload" :disabled="loading">
+      上传文件
+    </el-button>
   </div>
 </template>
 

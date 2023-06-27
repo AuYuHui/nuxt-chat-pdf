@@ -21,9 +21,9 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@microsoft/fetch-event-source": "^2.0.1",
+    "chromadb": "^1.5.2",
     "element-plus": "^2.3.6",
     "h3-formidable": "^0.3.4",
-    "mammoth": "^1.6.0",
     "pdf-parse": "^1.1.1"
   },
   "devDependencies": {

@@ -1,90 +1,63 @@
-import { PineconeClient } from "@pinecone-database/pinecone";
-import { PineconeStore } from "langchain/vectorstores/pinecone";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-import { OpenAI } from "langchain/llms/openai";
-import { VectorDBQAChain } from "langchain/chains";
-
+import { BaseChatMessage } from "langchain/schema";
+import { ChatMessageHistory } from "langchain/memory";
+import { Chroma } from "langchain/vectorstores/chroma";
+import { makeChain } from "~/utils/makechain";
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const headers = {
-    "Content-Type": "text/event-stream",
-    "Cache-Control": "no-cache",
-    Connection: "keep-alive",
-  };
-  setHeaders(event, headers);
-  const body = await readBody<{
+  const { prompt, history, collectionName } = await readBody<{
     prompt: string;
-    history: any[];
+    history: BaseChatMessage[];
+    collectionName: string;
   }>(event);
-  const pinecone = await initPinecone();
-  const pineconeIndex = pinecone.Index(config.PINECONE_INDEX_NAME);
 
-  const vectorStore = await PineconeStore.fromExistingIndex(
-    new OpenAIEmbeddings(
-      { openAIApiKey: config.OPENAI_API_KEY },
-      {
-        basePath: config.OPENAI_PROXY_URL,
-      }
-    ),
-    {
-      pineconeIndex,
-      textKey: "text",
-      namespace: config.PINECONE_INDEX_NAME,
-    }
-  );
+  if (!prompt) {
+    return setResponseStatus(event, 400, "No question in the request");
+  }
+  console.log("question:", prompt);
+  console.log(history);
 
-  // /* Search the vector DB independently with meta filters */
-  const sanitizedQuestion = `${body.prompt.trim().replaceAll("\n", " ")}`;
-  /** 做相似性搜索 */
-  await vectorStore.similaritySearch(sanitizedQuestion);
-
-  const model = new OpenAI(
-    {
-      openAIApiKey: config.OPENAI_API_KEY,
-      modelName: "gpt-3.5-turbo",
-      streaming: true,
-      maxConcurrency: 5,
-    },
-    {
-      basePath: config.OPENAI_PROXY_URL,
-    }
-  );
-  const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
-    k: 1,
-    returnSourceDocuments: true,
+  history.map((val) => {
+    console.log(val);
   });
 
-  const sendData = (data: string) => {
-    event.node.res.write(`id: ${Date.now()}\n`);
-    event.node.res.write("type: message\n");
-    event.node.res.write(`data: ${data}\n\n`);
-  };
-
+  // OpenAI recommends replacing newlines with spaces for best results
+  const sanitizedQuestion = prompt.trim().replaceAll("\n", " ");
   try {
-    const res = await chain.call({ query: body.prompt, chat_history: body.history || [] }, [
-      {
-        handleLLMNewToken(token: string) {
-          sendData(JSON.stringify({ data: token }));
+    if (!collectionName) {
+      throw new Error("Chroma collection name is missing");
+    }
+    /* create vectorstore*/
+    const vectorStore = await Chroma.fromExistingCollection(
+      new OpenAIEmbeddings(
+        {
+          openAIApiKey: config.OPENAI_API_KEY,
         },
-      },
-    ]);
-    console.log(res);
-  } finally {
-    sendData("[DONE]");
-    event.node.res.end();
-  }
-});
-export async function initPinecone() {
-  const config = useRuntimeConfig();
-  try {
-    const pinecone = new PineconeClient();
-    await pinecone.init({
-      environment: config.PINECONE_ENVIRONMENT ?? "", // this is in the dashboard
-      apiKey: config.PINECONE_API_KEY ?? "",
+        {
+          basePath: "https://openai.wndbac.cn/v1",
+        }
+      ),
+      {
+        collectionName: collectionName,
+      }
+    );
+
+    //create chain
+    const chain = makeChain(vectorStore);
+    //Ask a question using chat history
+    const response = await chain.call({
+      question: sanitizedQuestion,
+      chat_history: new ChatMessageHistory(history),
     });
 
-    return pinecone;
-  } catch (error) {
-    throw new Error("Failed to initialize Pinecone Client");
+    console.log("response", response);
+    return {
+      msg: "success",
+      data: response,
+    };
+  } catch (error: any) {
+    console.log("error:", error);
+    setResponseStatus(event, 500);
+    send(event, { error: error.message || "Something went wrong" });
   }
-}
+});

@@ -18,10 +18,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     OPENAI_API_KEY: "",
-    OPENAI_PROXY_URL: "",
-    PINECONE_API_KEY: "",
-    PINECONE_ENVIRONMENT: "",
-    PINECONE_INDEX_NAME: "",
   },
 
   // css
@@ -33,7 +29,13 @@ export default defineNuxtConfig({
   },
 
   // build modules
-  modules: ["@vueuse/nuxt", "@unocss/nuxt", "@pinia/nuxt", "@element-plus/nuxt", "@nuxtjs/color-mode"],
+  modules: [
+    "@vueuse/nuxt",
+    "@unocss/nuxt",
+    "@pinia/nuxt",
+    "@element-plus/nuxt",
+    "@nuxtjs/color-mode",
+  ],
 
   // vueuse
   vueuse: {

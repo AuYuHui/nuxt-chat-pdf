@@ -10,13 +10,13 @@
             <div
               class="shrink-0 w-7 h-7 rounded-full op-80 bg-gradient-to-r"
               :class="
-                item.role === 'user'
+                item['type'] === 'human'
                   ? 'from-purple-400 to-yellow-400'
                   : 'from-yellow-200 via-green-200 to-green-300'
               "
             ></div>
             <div class="message prose break-words overflow-hidden">
-              <p>{{ item.content }}</p>
+              <p>{{ item.text }}</p>
             </div>
           </div>
         </div>
@@ -26,11 +26,10 @@
 </template>
 
 <script setup lang="ts">
+import { BaseChatMessage } from "langchain/schema";
+
 export interface Props {
-  history: Array<{
-    role: string;
-    content: string;
-  }>;
+  history: Array<BaseChatMessage>;
 }
 
 const props = withDefaults(defineProps<Props>(), {
