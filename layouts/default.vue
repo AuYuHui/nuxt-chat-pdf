@@ -2,11 +2,16 @@
   <div class="h-full w-full">
     <el-container class="h-full">
       <el-aside width="64px">
-        <Slider />
+        <layout-slider />
       </el-aside>
-      <el-main>
-        <slot />
-      </el-main>
+      <el-container>
+        <el-header>
+          <layout-header />
+        </el-header>
+        <el-main>
+          <slot />
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
