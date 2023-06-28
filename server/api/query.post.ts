@@ -5,7 +5,6 @@ import { Chroma } from 'langchain/vectorstores/chroma'
 import { makeChain } from '~/utils/makechain'
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
   const { prompt, history, collectionName } = await readBody<{
     prompt: string
     history: BaseChatMessage[]
@@ -18,10 +17,6 @@ export default defineEventHandler(async (event) => {
   console.log('question:', prompt)
   console.log(history)
 
-  history.map((val) => {
-    console.log(val)
-  })
-
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = prompt.trim().replaceAll('\n', ' ')
   try {
@@ -32,10 +27,10 @@ export default defineEventHandler(async (event) => {
     const vectorStore = await Chroma.fromExistingCollection(
       new OpenAIEmbeddings(
         {
-          openAIApiKey: config.OPENAI_API_KEY,
+          openAIApiKey: process.env.OPENAI_API_KEY,
         },
         {
-          basePath: 'https://openai.wndbac.cn/v1',
+          basePath: process.env.OPENAI_PROXY_URL,
         },
       ),
       {

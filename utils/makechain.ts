@@ -20,12 +20,12 @@ Helpful Answer:`
 export function makeChain(vectorstore: Chroma) {
   const model = new OpenAI(
     {
-      openAIApiKey: process.env.NUXT_OPENAI_API_KEY,
+      openAIApiKey: process.env.OPENAI_API_KEY,
       temperature: 0, // increase temepreature to get more creative answers
       modelName: 'gpt-3.5-turbo-0613', // change this to gpt-4 if you have access
     },
     {
-      basePath: 'https://openai.wndbac.cn/v1',
+      basePath: process.env.OPENAI_PROXY_URL,
     },
   )
 

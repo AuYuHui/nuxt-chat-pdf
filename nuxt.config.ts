@@ -3,25 +3,21 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: "nuxt-chat-pdf",
+      title: 'nuxt-chat-pdf',
       meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
-          hid: "description",
-          name: "description",
-          content: "ElementPlus + Nuxt3",
+          hid: 'description',
+          name: 'description',
+          content: 'Langchain OpenAi Chroma Nuxt3 ',
         },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
 
-  runtimeConfig: {
-    OPENAI_API_KEY: "",
-  },
-
   // css
-  css: ["@unocss/reset/tailwind.css", "~/assets/scss/index.scss"],
+  css: ['@unocss/reset/tailwind.css', '~/assets/scss/index.scss'],
 
   typescript: {
     strict: true,
@@ -30,11 +26,11 @@ export default defineNuxtConfig({
 
   // build modules
   modules: [
-    "@vueuse/nuxt",
-    "@unocss/nuxt",
-    "@pinia/nuxt",
-    "@element-plus/nuxt",
-    "@nuxtjs/color-mode",
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@pinia/nuxt',
+    '@element-plus/nuxt',
+    '@nuxtjs/color-mode',
   ],
 
   // vueuse
@@ -44,7 +40,7 @@ export default defineNuxtConfig({
 
   // colorMode
   colorMode: {
-    classSuffix: "",
+    classSuffix: '',
   },
 
   unocss: {
@@ -58,14 +54,14 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
+          additionalData: '@use "@/assets/scss/element/index.scss" as element;',
         },
       },
     },
   },
   elementPlus: {
-    icon: "ElIcon",
-    importStyle: "scss",
-    themes: ["dark"],
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    themes: ['dark'],
   },
-});
+})

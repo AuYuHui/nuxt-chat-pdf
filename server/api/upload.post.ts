@@ -38,10 +38,10 @@ async function storeDocumentsInChroma(
       const config = useRuntimeConfig()
       const embeddings = new OpenAIEmbeddings(
         {
-          openAIApiKey: config.OPENAI_API_KEY,
+          openAIApiKey: process.env.OPENAI_API_KEY,
         },
         {
-          basePath: 'https://openai.wndbac.cn/v1',
+          basePath: process.env.OPENAI_PROXY_URL,
         },
       )
       console.log('fileLoader')
