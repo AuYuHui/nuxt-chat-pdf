@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div>
-    123
+  <div class="flex-1">
+    456
   </div>
 </template>
 

@@ -1,9 +1,15 @@
+:root {
+  --pageBgColor: #F5F7FA;
+  --btnBgColor: #EAEFFF ;
+}
+
 html,
 body,
 #__nuxt {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--pageBgColor);
 }
 
 html.dark {

@@ -41,13 +41,8 @@ function handleSuccess(val: string) {
 
 <template>
   <div class="flex h-full">
-    <div class="flex-1">
-      <Chat :history="history" />
-      <el-input v-model="prompt" type="textarea" :rows="3" resize="none" placeholder="Please input" />
-      <el-button type="primary" class="mt-2" :loading="loading" :disabled="loading" @click="handleQuery">
-        发送
-      </el-button>
-    </div>
+    <ChatSlider />
+    <ChatMessage />
   </div>
 </template>
 
