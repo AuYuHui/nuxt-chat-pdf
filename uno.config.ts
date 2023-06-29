@@ -12,6 +12,7 @@ import {
 export default defineConfig({
   shortcuts: [
     ['flex-cb', 'flex justify-between items-center'],
+    ['flex-c', 'flex  items-center justify-center'],
     ['flex-col-c', 'flex flex-col items-center'],
   ],
   presets: [

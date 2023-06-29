@@ -1,6 +1,7 @@
 :root {
   --pageBgColor: #F5F7FA;
   --btnBgColor: #EAEFFF ;
+  --text-color-primary: #4876FF;
 }
 
 html,
@@ -9,6 +10,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  color: #000;
   background-color: var(--pageBgColor);
 }
 
