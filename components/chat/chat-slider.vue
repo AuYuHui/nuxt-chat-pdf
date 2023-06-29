@@ -30,7 +30,7 @@ function handleClickHistory() {
 
     <!-- 历史 记录 -->
     <el-scrollbar>
-      <div v-for="(chat) in dataSources" :key="chat.uuid" class="w-full mt-2">
+      <div v-for="chat in dataSources" :key="chat.uuid" class="w-full mt-2">
         <div class="flex items-center px-3 py-1 gap-x-2  bg-[--btnBgColor] text-[--text-color-primary] rounded-1">
           <div>
             <el-icon>

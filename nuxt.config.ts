@@ -22,6 +22,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     shim: false,
+    tsConfig: {
+      include: ['/typings/*.d.ts'],
+    },
   },
 
   // build modules
