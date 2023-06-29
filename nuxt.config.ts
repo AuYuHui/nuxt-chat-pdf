@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: 'nuxt-chat-pdf',
+      title: 'Nuxt-Chat-PDF',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {

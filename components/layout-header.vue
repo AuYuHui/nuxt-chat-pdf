@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="bg-white h-full flex-cb px-5">
-    <div>
+  <div class="bg-white h-full flex-cb px-5 border-b-1">
+    <div class="font-bold">
       Nuxt-Chat
     </div>
     <div>
