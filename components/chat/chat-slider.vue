@@ -17,7 +17,7 @@ const RenderDeleteIcon: FunctionalComponent<IconProps> = ({
 }) => {
   const slot = {
     reference: () => (
-			<el-icon class="cursor-pointer">
+			<el-icon class="cursor-pointer hover:text-[--text-color-primary]">
 				<ElIconDelete />
 			</el-icon>
     ),
@@ -50,6 +50,16 @@ function handleDelete({ uuid }: Chat.History) {
 function handleEnter({ uuid }: Chat.History, isEdit: boolean) {
   chatStore.updateHistory(uuid, { isEdit })
 }
+
+function handleSelect(uuid: number) {
+  if (isActive(uuid))
+    return
+  chatStore.setActive(uuid)
+}
+
+function isActive(uuid: number) {
+  return chatStore.active === uuid
+}
 </script>
 
 <template>
@@ -68,14 +78,18 @@ function handleEnter({ uuid }: Chat.History, isEdit: boolean) {
     <!-- 历史 记录 -->
     <el-scrollbar class="w-full">
       <div v-for="chat in dataSources" :key="chat.uuid" class="w-full mt-2">
-        <div class="flex items-center px-3 py-1 gap-x-2  bg-[--btnBgColor] text-[--text-color-primary] rounded-1">
+        <div
+          class="flex items-center px-3 py-1 gap-x-2  rounded-1 h-[55px]"
+          :class="isActive(chat.uuid) ? 'bg-[--btnBgColor]' : 'bg-[#F8F9FC]'"
+          @click="handleSelect(chat.uuid)"
+        >
           <div>
             <el-icon>
               <ElIconChatSquare />
             </el-icon>
           </div>
-          <div class="flex-1">
-            <div class="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap font-500">
+          <div class="flex-1 flex flex-col justify-between h-full cursor-pointer">
+            <div class="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap font-500 mb-1" :class="{ 'text-[--text-color-primary]': isActive(chat.uuid) }">
               <el-input
                 v-if="chat.isEdit" v-model="chat.title"
                 v-on-click-outside="() => chat.title && (chat.isEdit = false)" size="small" maxlength="50"
@@ -83,12 +97,10 @@ function handleEnter({ uuid }: Chat.History, isEdit: boolean) {
               />
               <span v-else>{{ chat.title }}</span>
             </div>
-            <div class="flex justify-end">
-              <ClientOnly>
-                <el-icon class="mr-3 cursor-pointer">
-                  <ElIconEditPen @click.stop="handleEdit(chat, true)" />
-                </el-icon>
-              </ClientOnly>
+            <div v-if="isActive(chat.uuid)" class="flex justify-end">
+              <el-icon class="mr-3 cursor-pointer hover:text-[--text-color-primary]">
+                <ElIconEditPen @click.stop="handleEdit(chat, true)" />
+              </el-icon>
               <RenderDeleteIcon :chat="chat" />
             </div>
           </div>
