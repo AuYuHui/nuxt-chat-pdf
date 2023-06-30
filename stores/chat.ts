@@ -4,6 +4,8 @@ import { useIDBKeyval } from '@vueuse/integrations/useIDBKeyval'
 const DBName = 'chat-history-store'
 
 export const useChatStore = defineStore('chat', () => {
+  // if (process.server)
+  //   return
   const { data: chatHistory } = useIDBKeyval<Chat.History[]>(DBName, [])
 
   /**
@@ -24,10 +26,21 @@ export const useChatStore = defineStore('chat', () => {
       chatHistory.value[index] = { ...chatHistory.value[index], ...edit }
   }
 
+  /**
+   * 删除目标记录
+   * @param uuid 要删除的记录ID
+   */
+  function deleteHistory(uuid: number) {
+    const index = chatHistory.value.findIndex(item => item.uuid === uuid)
+    if (index !== -1)
+      chatHistory.value.splice(index, 1)
+  }
+
   return {
     chatHistory,
     addHistory,
     updateHistory,
+    deleteHistory,
   }
 })
 

@@ -1,17 +1,47 @@
-<script setup lang="ts">
+<script setup lang="tsx">
+import type { FunctionalComponent } from 'nuxt/dist/app/compat/vue-demi'
 import { useChatStore } from '~/stores/chat'
 
 const chatStore = useChatStore()
 
 const dataSources = computed(() => chatStore.chatHistory)
 
+interface IconProps {
+  chat: Chat.History
+}
+
+const RenderDeleteIcon: FunctionalComponent<IconProps> = ({
+  chat,
+}) => {
+  return (
+    <div onClick={() => handleDelete(chat)}>
+      <el-tooltip
+        effect="dark"
+        content="删除记录"
+        placement="bottom"
+      >
+        <el-icon class="cursor-pointer">
+          <ElIconDelete />
+        </el-icon>
+      </el-tooltip>
+    </div>
+  )
+}
+
 function handleClickHistory() {
   chatStore.addHistory({
-    title: '大幅低开反对反对反对法',
+    title: 'New Chat',
     isEdit: false,
     uuid: Date.now(),
-    loading: false,
   })
+}
+
+function handleEdit({ uuid }: Chat.History, isEdit: boolean) {
+  chatStore.updateHistory(uuid, { isEdit })
+}
+
+function handleDelete({ uuid }: Chat.History) {
+  chatStore.deleteHistory(uuid)
 }
 </script>
 
@@ -29,7 +59,7 @@ function handleClickHistory() {
     </div>
 
     <!-- 历史 记录 -->
-    <el-scrollbar>
+    <el-scrollbar class="w-full">
       <div v-for="chat in dataSources" :key="chat.uuid" class="w-full mt-2">
         <div class="flex items-center px-3 py-1 gap-x-2  bg-[--btnBgColor] text-[--text-color-primary] rounded-1">
           <div>
@@ -39,28 +69,16 @@ function handleClickHistory() {
           </div>
           <div class="flex-1">
             <div class="max-w-[200px] font-bold overflow-hidden text-ellipsis whitespace-nowrap">
-              45454564654654654654645654
+              {{ chat.title }}
             </div>
             <div class="flex justify-end">
               <ClientOnly>
-                <el-tooltip
-                  effect="dark"
-                  content="编辑标题"
-                  placement="bottom"
-                >
+                <el-tooltip effect="dark" content="编辑标题" placement="bottom">
                   <el-icon class="mr-3 cursor-pointer">
-                    <ElIconEditPen />
+                    <ElIconEditPen @click.stop="handleEdit(chat, true)" />
                   </el-icon>
                 </el-tooltip>
-                <el-tooltip
-                  effect="dark"
-                  content="删除记录"
-                  placement="bottom"
-                >
-                  <el-icon class="cursor-pointer">
-                    <ElIconDelete />
-                  </el-icon>
-                </el-tooltip>
+                <RenderDeleteIcon :chat="chat" />
               </ClientOnly>
             </div>
           </div>
@@ -70,6 +88,4 @@ function handleClickHistory() {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
