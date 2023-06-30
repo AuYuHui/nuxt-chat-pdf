@@ -1,11 +1,9 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore, skipHydrate } from 'pinia'
 import { useIDBKeyval } from '@vueuse/integrations/useIDBKeyval'
 
 const DBName = 'chat-history-store'
 
 export const useChatStore = defineStore('chat', () => {
-  // if (process.server)
-  //   return
   const { data: chatHistory } = useIDBKeyval<Chat.History[]>(DBName, [])
 
   /**
@@ -37,7 +35,7 @@ export const useChatStore = defineStore('chat', () => {
   }
 
   return {
-    chatHistory,
+    chatHistory: skipHydrate(chatHistory), // https://pinia.vuejs.org/zh/cookbook/composables.html
     addHistory,
     updateHistory,
     deleteHistory,

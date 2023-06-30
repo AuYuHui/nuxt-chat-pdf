@@ -1,5 +1,7 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+const lifecycle = process.env.npm_lifecycle_event
 export default defineNuxtConfig({
+  ssr: false,
   app: {
     // head
     head: {
@@ -19,14 +21,6 @@ export default defineNuxtConfig({
   // css
   css: ['@unocss/reset/tailwind.css', '~/assets/scss/index.scss'],
 
-  typescript: {
-    strict: true,
-    shim: false,
-    tsConfig: {
-      include: ['/typings/*.d.ts'],
-    },
-  },
-
   // build modules
   modules: [
     '@vueuse/nuxt',
@@ -35,6 +29,10 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
   ],
+
+  build: {
+    transpile: lifecycle === 'build' ? ['element-plus'] : [],
+  },
 
   // vueuse
   vueuse: {
@@ -59,5 +57,14 @@ export default defineNuxtConfig({
     icon: 'ElIcon',
     importStyle: 'scss',
     themes: ['dark'],
+  },
+  pinia: {
+  },
+  typescript: {
+    strict: true,
+    shim: false,
+    tsConfig: {
+      include: ['/typings/*.d.ts'],
+    },
   },
 })

@@ -1,5 +1,7 @@
 <script setup lang="tsx">
-import type { FunctionalComponent } from 'nuxt/dist/app/compat/vue-demi'
+import type { FunctionalComponent } from 'vue-demi'
+import { vOnClickOutside } from '@vueuse/components'
+import { ClientOnly } from '#components'
 import { useChatStore } from '~/stores/chat'
 
 const chatStore = useChatStore()
@@ -15,23 +17,17 @@ const RenderDeleteIcon: FunctionalComponent<IconProps> = ({
 }) => {
   const slot = {
     reference: () => (
-      <div>
-        <el-tooltip
-          effect="dark"
-          content="删除记录"
-          placement="bottom"
-        >
-          <el-icon class="cursor-pointer">
-            <ElIconDelete />
-          </el-icon>
-        </el-tooltip>
-      </div>
+			<el-icon class="cursor-pointer">
+				<ElIconDelete />
+			</el-icon>
     ),
   }
   return (
-    <el-popconfirm title="是否删除此记录?" hide-after={0} onConfirm={() => handleDelete(chat)}>
-      {slot}
-    </el-popconfirm>
+		<ClientOnly>
+			<el-popconfirm title="是否删除此记录?" hide-after={0} onConfirm={() => handleDelete(chat)}>
+				{slot}
+			</el-popconfirm>
+		</ClientOnly>
   )
 }
 
@@ -49,6 +45,10 @@ function handleEdit({ uuid }: Chat.History, isEdit: boolean) {
 
 function handleDelete({ uuid }: Chat.History) {
   chatStore.deleteHistory(uuid)
+}
+
+function handleEnter({ uuid }: Chat.History, isEdit: boolean) {
+  chatStore.updateHistory(uuid, { isEdit })
 }
 </script>
 
@@ -75,18 +75,21 @@ function handleDelete({ uuid }: Chat.History) {
             </el-icon>
           </div>
           <div class="flex-1">
-            <div class="max-w-[200px] font-bold overflow-hidden text-ellipsis whitespace-nowrap">
-              {{ chat.title }}
+            <div class="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap font-500">
+              <el-input
+                v-if="chat.isEdit" v-model="chat.title"
+                v-on-click-outside="() => chat.title && (chat.isEdit = false)" size="small" maxlength="50"
+                @keyup.enter.stop="handleEnter(chat, false)"
+              />
+              <span v-else>{{ chat.title }}</span>
             </div>
             <div class="flex justify-end">
               <ClientOnly>
-                <el-tooltip effect="dark" content="编辑标题" placement="bottom">
-                  <el-icon class="mr-3 cursor-pointer">
-                    <ElIconEditPen @click.stop="handleEdit(chat, true)" />
-                  </el-icon>
-                </el-tooltip>
-                <RenderDeleteIcon :chat="chat" />
+                <el-icon class="mr-3 cursor-pointer">
+                  <ElIconEditPen @click.stop="handleEdit(chat, true)" />
+                </el-icon>
               </ClientOnly>
+              <RenderDeleteIcon :chat="chat" />
             </div>
           </div>
         </div>

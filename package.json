@@ -21,6 +21,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@microsoft/fetch-event-source": "^2.0.1",
+    "@vueuse/components": "^10.2.1",
     "@vueuse/integrations": "^10.2.1",
     "chromadb": "^1.5.2",
     "element-plus": "^2.3.7",

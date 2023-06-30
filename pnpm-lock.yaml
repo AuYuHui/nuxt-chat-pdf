@@ -11,6 +11,9 @@ dependencies:
   '@microsoft/fetch-event-source':
     specifier: ^2.0.1
     version: 2.0.1
+  '@vueuse/components':
+    specifier: ^10.2.1
+    version: registry.npmmirror.com/@vueuse/components@10.2.1
   '@vueuse/integrations':
     specifier: ^10.2.1
     version: 10.2.1(idb-keyval@6.2.1)
@@ -531,31 +534,6 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/load@17.5.0:
-    resolution: {integrity: sha512-l+4W8Sx4CD5rYFsrhHH8HP01/8jEP7kKf33Xlx2Uk2out/UKoKPYMOIRcDH5ppT8UXLMV+x6Wm5osdRKKgaD1Q==}
-    engines: {node: '>=v14'}
-    requiresBuild: true
-    dependencies:
-      '@commitlint/config-validator': 17.4.4
-      '@commitlint/execute-rule': 17.4.0
-      '@commitlint/resolve-extends': 17.4.4
-      '@commitlint/types': 17.4.4
-      '@types/node': 20.3.2
-      chalk: 4.1.2
-      cosmiconfig: 8.2.0
-      cosmiconfig-typescript-loader: 4.3.0(@types/node@20.3.2)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.5)
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      lodash.uniq: 4.5.0
-      resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.3.2)(typescript@5.1.5)
-      typescript: 5.1.5
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-    dev: true
-    optional: true
-
   /@commitlint/resolve-extends@17.4.4:
     resolution: {integrity: sha512-znXr1S0Rr8adInptHw0JeLgumS11lWbk5xAWFVno+HUFVN45875kUtqjrI6AppmD3JI+4s0uZlqqlkepjJd99A==}
     engines: {node: '>=v14'}
@@ -612,402 +590,6 @@ packages:
       - rollup
       - supports-color
     dev: true
-
-  /@esbuild/android-arm64@0.17.19:
-    resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/android-arm64@0.18.10:
-    resolution: {integrity: sha512-ynm4naLbNbK0ajf9LUWtQB+6Vfg1Z/AplArqr4tGebC00Z6m9Y91OVIcjDa461wGcZwcaHYaZAab4yJxfhisTQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/android-arm@0.17.19:
-    resolution: {integrity: sha512-rIKddzqhmav7MSmoFCmDIb6e2W57geRsM94gV2l38fzhXMwq7hZoClug9USI2pFRGL06f4IOPHHpFNOkWieR8A==}
-    engines: {node: '>=12'}
-    cpu: [arm]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/android-arm@0.18.10:
-    resolution: {integrity: sha512-3KClmVNd+Fku82uZJz5C4Rx8m1PPmWUFz5Zkw8jkpZPOmsq+EG1TTOtw1OXkHuX3WczOFQigrtf60B1ijKwNsg==}
-    engines: {node: '>=12'}
-    cpu: [arm]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/android-x64@0.17.19:
-    resolution: {integrity: sha512-uUTTc4xGNDT7YSArp/zbtmbhO0uEEK9/ETW29Wk1thYUJBz3IVnvgEiEwEa9IeLyvnpKrWK64Utw2bgUmDveww==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/android-x64@0.18.10:
-    resolution: {integrity: sha512-vFfXj8P9Yfjh54yqUDEHKzqzYuEfPyAOl3z7R9hjkwt+NCvbn9VMxX+IILnAfdImRBfYVItgSUsqGKhJFnBwZw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/darwin-arm64@0.17.19:
-    resolution: {integrity: sha512-80wEoCfF/hFKM6WE1FyBHc9SfUblloAWx6FJkFWTWiCoht9Mc0ARGEM47e67W9rI09YoUxJL68WHfDRYEAvOhg==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/darwin-arm64@0.18.10:
-    resolution: {integrity: sha512-k2OJQ7ZxE6sVc91+MQeZH9gFeDAH2uIYALPAwTjTCvcPy9Dzrf7V7gFUQPYkn09zloWhQ+nvxWHia2x2ZLR0sQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/darwin-x64@0.17.19:
-    resolution: {integrity: sha512-IJM4JJsLhRYr9xdtLytPLSH9k/oxR3boaUIYiHkAawtwNOXKE8KoU8tMvryogdcT8AU+Bflmh81Xn6Q0vTZbQw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/darwin-x64@0.18.10:
-    resolution: {integrity: sha512-tnz/mdZk1L1Z3WpGjin/L2bKTe8/AKZpI8fcCLtH+gq8WXWsCNJSxlesAObV4qbtTl6pG5vmqFXfWUQ5hV8PAQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/freebsd-arm64@0.17.19:
-    resolution: {integrity: sha512-pBwbc7DufluUeGdjSU5Si+P3SoMF5DQ/F/UmTSb8HXO80ZEAJmrykPyzo1IfNbAoaqw48YRpv8shwd1NoI0jcQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/freebsd-arm64@0.18.10:
-    resolution: {integrity: sha512-QJluV0LwBrbHnYYwSKC+K8RGz0g/EyhpQH1IxdoFT0nM7PfgjE+aS8wxq/KFEsU0JkL7U/EEKd3O8xVBxXb2aA==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/freebsd-x64@0.17.19:
-    resolution: {integrity: sha512-4lu+n8Wk0XlajEhbEffdy2xy53dpR06SlzvhGByyg36qJw6Kpfk7cp45DR/62aPH9mtJRmIyrXAS5UWBrJT6TQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/freebsd-x64@0.18.10:
-    resolution: {integrity: sha512-Hi/ycUkS6KTw+U9G5PK5NoK7CZboicaKUSVs0FSiPNtuCTzK6HNM4DIgniH7hFaeuszDS9T4dhAHWiLSt/Y5Ng==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-arm64@0.17.19:
-    resolution: {integrity: sha512-ct1Tg3WGwd3P+oZYqic+YZF4snNl2bsnMKRkb3ozHmnM0dGWuxcPTTntAF6bOP0Sp4x0PjSF+4uHQ1xvxfRKqg==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-arm64@0.18.10:
-    resolution: {integrity: sha512-Nz6XcfRBOO7jSrVpKAyEyFOPGhySPNlgumSDhWAspdQQ11ub/7/NZDMhWDFReE9QH/SsCOCLQbdj0atAk/HMOQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-arm@0.17.19:
-    resolution: {integrity: sha512-cdmT3KxjlOQ/gZ2cjfrQOtmhG4HJs6hhvm3mWSRDPtZ/lP5oe8FWceS10JaSJC13GBd4eH/haHnqf7hhGNLerA==}
-    engines: {node: '>=12'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-arm@0.18.10:
-    resolution: {integrity: sha512-HfFoxY172tVHPIvJy+FHxzB4l8xU7e5cxmNS11cQ2jt4JWAukn/7LXaPdZid41UyTweqa4P/1zs201gRGCTwHw==}
-    engines: {node: '>=12'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-ia32@0.17.19:
-    resolution: {integrity: sha512-w4IRhSy1VbsNxHRQpeGCHEmibqdTUx61Vc38APcsRbuVgK0OPEnQ0YD39Brymn96mOx48Y2laBQGqgZ0j9w6SQ==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-ia32@0.18.10:
-    resolution: {integrity: sha512-otMdmSmkMe+pmiP/bZBjfphyAsTsngyT9RCYwoFzqrveAbux9nYitDTpdgToG0Z0U55+PnH654gCH2GQ1aB6Yw==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-loong64@0.17.19:
-    resolution: {integrity: sha512-2iAngUbBPMq439a+z//gE+9WBldoMp1s5GWsUSgqHLzLJ9WoZLZhpwWuym0u0u/4XmZ3gpHmzV84PonE+9IIdQ==}
-    engines: {node: '>=12'}
-    cpu: [loong64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-loong64@0.18.10:
-    resolution: {integrity: sha512-t8tjFuON1koxskzQ4VFoh0T5UDUMiLYjwf9Wktd0tx8AoK6xgU+5ubKOpWpcnhEQ2tESS5u0v6QuN8PX/ftwcQ==}
-    engines: {node: '>=12'}
-    cpu: [loong64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-mips64el@0.17.19:
-    resolution: {integrity: sha512-LKJltc4LVdMKHsrFe4MGNPp0hqDFA1Wpt3jE1gEyM3nKUvOiO//9PheZZHfYRfYl6AwdTH4aTcXSqBerX0ml4A==}
-    engines: {node: '>=12'}
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-mips64el@0.18.10:
-    resolution: {integrity: sha512-+dUkcVzcfEJHz3HEnVpIJu8z8Wdn2n/nWMWdl6FVPFGJAVySO4g3+XPzNKFytVFwf8hPVDwYXzVcu8GMFqsqZw==}
-    engines: {node: '>=12'}
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-ppc64@0.17.19:
-    resolution: {integrity: sha512-/c/DGybs95WXNS8y3Ti/ytqETiW7EU44MEKuCAcpPto3YjQbyK3IQVKfF6nbghD7EcLUGl0NbiL5Rt5DMhn5tg==}
-    engines: {node: '>=12'}
-    cpu: [ppc64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-ppc64@0.18.10:
-    resolution: {integrity: sha512-sO3PjjxEGy+PY2qkGe2gwJbXdZN9wAYpVBZWFD0AwAoKuXRkWK0/zaMQ5ekUFJDRDCRm8x5U0Axaub7ynH/wVg==}
-    engines: {node: '>=12'}
-    cpu: [ppc64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-riscv64@0.17.19:
-    resolution: {integrity: sha512-FC3nUAWhvFoutlhAkgHf8f5HwFWUL6bYdvLc/TTuxKlvLi3+pPzdZiFKSWz/PF30TB1K19SuCxDTI5KcqASJqA==}
-    engines: {node: '>=12'}
-    cpu: [riscv64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-riscv64@0.18.10:
-    resolution: {integrity: sha512-JDtdbJg3yjDeXLv4lZYE1kiTnxv73/8cbPHY9T/dUKi8rYOM/k5b3W4UJLMUksuQ6nTm5c89W1nADsql6FW75A==}
-    engines: {node: '>=12'}
-    cpu: [riscv64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-s390x@0.17.19:
-    resolution: {integrity: sha512-IbFsFbxMWLuKEbH+7sTkKzL6NJmG2vRyy6K7JJo55w+8xDk7RElYn6xvXtDW8HCfoKBFK69f3pgBJSUSQPr+4Q==}
-    engines: {node: '>=12'}
-    cpu: [s390x]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-s390x@0.18.10:
-    resolution: {integrity: sha512-NLuSKcp8WckjD2a7z5kzLiCywFwBTMlIxDNuud1AUGVuwBBJSkuubp6cNjJ0p5c6CZaA3QqUGwjHJBiG1SoOFw==}
-    engines: {node: '>=12'}
-    cpu: [s390x]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-x64@0.17.19:
-    resolution: {integrity: sha512-68ngA9lg2H6zkZcyp22tsVt38mlhWde8l3eJLWkyLrp4HwMUr3c1s/M2t7+kHIhvMjglIBrFpncX1SzMckomGw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/linux-x64@0.18.10:
-    resolution: {integrity: sha512-wj2KRsCsFusli+6yFgNO/zmmLslislAWryJnodteRmGej7ZzinIbMdsyp13rVGde88zxJd5vercNYK9kuvlZaQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/netbsd-x64@0.17.19:
-    resolution: {integrity: sha512-CwFq42rXCR8TYIjIfpXCbRX0rp1jo6cPIUPSaWwzbVI4aOfX96OXY8M6KNmtPcg7QjYeDmN+DD0Wp3LaBOLf4Q==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/netbsd-x64@0.18.10:
-    resolution: {integrity: sha512-pQ9QqxEPI3cVRZyUtCoZxhZK3If+7RzR8L2yz2+TDzdygofIPOJFaAPkEJ5rYIbUO101RaiYxfdOBahYexLk5A==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/openbsd-x64@0.17.19:
-    resolution: {integrity: sha512-cnq5brJYrSZ2CF6c35eCmviIN3k3RczmHz8eYaVlNasVqsNY+JKohZU5MKmaOI+KkllCdzOKKdPs762VCPC20g==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [openbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/openbsd-x64@0.18.10:
-    resolution: {integrity: sha512-k8GTIIW9I8pEEfoOUm32TpPMgSg06JhL5DO+ql66aLTkOQUs0TxCA67Wi7pv6z8iF8STCGcNbm3UWFHLuci+ag==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [openbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/sunos-x64@0.17.19:
-    resolution: {integrity: sha512-vCRT7yP3zX+bKWFeP/zdS6SqdWB8OIpaRq/mbXQxTGHnIxspRtigpkUcDMlSCOejlHowLqII7K2JKevwyRP2rg==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/sunos-x64@0.18.10:
-    resolution: {integrity: sha512-vIGYJIdEI6d4JBucAx8py792G8J0GP40qSH+EvSt80A4zvGd6jph+5t1g+eEXcS2aRpgZw6CrssNCFZxTdEsxw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-arm64@0.17.19:
-    resolution: {integrity: sha512-yYx+8jwowUstVdorcMdNlzklLYhPxjniHWFKgRqH7IFlUEa0Umu3KuYplf1HUZZ422e3NU9F4LGb+4O0Kdcaag==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-arm64@0.18.10:
-    resolution: {integrity: sha512-kRhNcMZFGMW+ZHCarAM1ypr8OZs0k688ViUCetVCef9p3enFxzWeBg9h/575Y0nsFu0ZItluCVF5gMR2pwOEpA==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-ia32@0.17.19:
-    resolution: {integrity: sha512-eggDKanJszUtCdlVs0RB+h35wNlb5v4TWEkq4vZcmVt5u/HiDZrTXe2bWFQUez3RgNHwx/x4sk5++4NSSicKkw==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-ia32@0.18.10:
-    resolution: {integrity: sha512-AR9PX1whYaYh9p0EOaKna0h48F/A101Mt/ag72+kMkkBZXPQ7cjbz2syXI/HI3OlBdUytSdHneljfjvUoqwqiQ==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-x64@0.17.19:
-    resolution: {integrity: sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@esbuild/win32-x64@0.18.10:
-    resolution: {integrity: sha512-5sTkYhAGHNRr6bVf4RM0PsscqVr6/DBYdrlMh168oph3usid3lKHcHEEHmr34iZ9GHeeg2juFOxtpl6XyC3tpw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.43.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
@@ -1522,9 +1104,6 @@ packages:
       rollup: 3.25.3
     dev: true
 
-  /@sxzz/popperjs-es@2.11.7:
-    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
-
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1609,12 +1188,6 @@ packages:
   /@types/uuid@9.0.2:
     resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
-
-  /@types/web-bluetooth@0.0.16:
-    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
-
-  /@types/web-bluetooth@0.0.17:
-    resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
 
   /@typescript-eslint/eslint-plugin@5.60.1(@typescript-eslint/parser@5.60.1)(eslint@8.43.0)(typescript@5.1.5):
     resolution: {integrity: sha512-KSWsVvsJsLJv3c4e73y/Bzt7OpqMCADUO846bHcuWYSYM19bldbAeDv7dYyV0jwkbMfJ2XdlzwjhXtuD7OY6bw==}
@@ -1882,7 +1455,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.2.12
       magic-string: 0.30.0
-      postcss: 8.4.24
+      postcss: registry.npmmirror.com/postcss@8.4.24
     dev: true
 
   /@unocss/preset-attributify@0.53.4:
@@ -2037,7 +1610,7 @@ packages:
       bindings: 1.5.0
       estree-walker: 2.0.2
       glob: 7.2.3
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       micromatch: 4.0.5
       node-gyp-build: 4.6.0
       resolve-from: 5.0.0
@@ -2219,10 +1792,10 @@ packages:
   /@vueuse/core@10.2.0:
     resolution: {integrity: sha512-aHBnoCteIS3hFu7ZZkVB93SanVDY6t4TIb7XDLxJT/HQdAZz+2RdIEJ8rj5LUoEJr7Damb5+sJmtpCwGez5ozQ==}
     dependencies:
-      '@types/web-bluetooth': 0.0.17
-      '@vueuse/metadata': 10.2.0
-      '@vueuse/shared': 10.2.0
-      vue-demi: 0.14.5
+      '@types/web-bluetooth': registry.npmmirror.com/@types/web-bluetooth@0.0.17
+      '@vueuse/metadata': registry.npmmirror.com/@vueuse/metadata@10.2.0
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared@10.2.0
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2231,10 +1804,10 @@ packages:
   /@vueuse/core@10.2.1:
     resolution: {integrity: sha512-c441bfMbkAwTNwVRHQ0zdYZNETK//P84rC01aP2Uy/aRFCiie9NE/k9KdIXbno0eDYP5NPUuWv0aA/I4Unr/7w==}
     dependencies:
-      '@types/web-bluetooth': 0.0.17
-      '@vueuse/metadata': 10.2.1
-      '@vueuse/shared': 10.2.1
-      vue-demi: 0.14.5
+      '@types/web-bluetooth': registry.npmmirror.com/@types/web-bluetooth@0.0.17
+      '@vueuse/metadata': registry.npmmirror.com/@vueuse/metadata@10.2.1
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared@10.2.1
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2243,10 +1816,10 @@ packages:
   /@vueuse/core@9.13.0:
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
-      '@types/web-bluetooth': 0.0.16
-      '@vueuse/metadata': 9.13.0
-      '@vueuse/shared': 9.13.0
-      vue-demi: 0.14.5
+      '@types/web-bluetooth': registry.npmmirror.com/@types/web-bluetooth@0.0.16
+      '@vueuse/metadata': registry.npmmirror.com/@vueuse/metadata@9.13.0
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared@9.13.0
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2305,13 +1878,6 @@ packages:
     resolution: {integrity: sha512-IR7Mkq6QSgZ38q/2ZzOt+Zz1OpcEsnwE64WBumDQ+RGKrosFCtUA2zgRrOqDEzPBXrVB+4HhFkwDjQMu0fDBKw==}
     dev: true
 
-  /@vueuse/metadata@10.2.1:
-    resolution: {integrity: sha512-3Gt68mY/i6bQvFqx7cuGBzrCCQu17OBaGWS5JdwISpMsHnMKKjC2FeB5OAfMcCQ0oINfADP3i9A4PPRo0peHdQ==}
-    dev: false
-
-  /@vueuse/metadata@9.13.0:
-    resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
-
   /@vueuse/nuxt@10.2.0(nuxt@3.6.1):
     resolution: {integrity: sha512-2rtZ5LmARJhUou8AJL1WwNNodinw/pwujVPsred+OuaU6H61t+hK3rQqdS/1Iu8Rw3mFj/dtVKVXOHai0dHMTg==}
     peerDependencies:
@@ -2330,31 +1896,14 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/shared@10.2.0:
-    resolution: {integrity: sha512-dIeA8+g9Av3H5iF4NXR/sft4V6vys76CpZ6hxwj8eMXybXk2WRl3scSsOVi+kQ9SX38COR7AH7WwY83UcuxbSg==}
-    dependencies:
-      vue-demi: 0.14.5
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
   /@vueuse/shared@10.2.1:
     resolution: {integrity: sha512-QWHq2bSuGptkcxx4f4M/fBYC3Y8d3M2UYyLsyzoPgEoVzJURQ0oJeWXu79OiLlBb8gTKkqe4mO85T/sf39mmiw==}
     dependencies:
-      vue-demi: 0.14.5
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
     dev: false
-
-  /@vueuse/shared@9.13.0:
-    resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
-    dependencies:
-      vue-demi: 0.14.5
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
 
   /abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -2465,7 +2014,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       glob: 7.2.3
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       lazystream: 1.0.1
       lodash.defaults: 4.2.0
       lodash.difference: 4.5.0
@@ -2823,7 +2372,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
   /chownr@2.0.0:
@@ -3024,6 +2573,7 @@ packages:
 
   /cookie-es@1.0.0:
     resolution: {integrity: sha512-mWYvfOLrfEc996hlKcdABeIiPHUPC6DM2QYZdGGOvhOTbA3tjm2eBwqlJpoFdjC89NI4Qt6h0Pu06Mp+1Pj5OQ==}
+    dev: true
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -3294,6 +2844,7 @@ packages:
 
   /defu@6.1.2:
     resolution: {integrity: sha512-+uO4+qr7msjNNWKYPHqN/3+Dx3NFkmIzayk2L1MyZQlvgZb/J1A0fo410dpKrN2SnqFjt8n4JL8fDJE0wIgjFQ==}
+    dev: true
 
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -3320,6 +2871,7 @@ packages:
 
   /destr@2.0.0:
     resolution: {integrity: sha512-FJ9RDpf3GicEBvzI3jxc2XhHzbqD8p4ANw/1kPsFBfTvP1b7Gn/Lg1vO7R9J4IVgoMbyUmFrFGZafJ1hPZpvlg==}
+    dev: true
 
   /destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
@@ -3441,7 +2993,7 @@ packages:
       '@ctrl/tinycolor': 3.6.0
       '@element-plus/icons-vue': 2.1.0
       '@floating-ui/dom': 1.4.2
-      '@popperjs/core': /@sxzz/popperjs-es@2.11.7
+      '@popperjs/core': registry.npmmirror.com/@sxzz/popperjs-es@2.11.7
       '@types/lodash': 4.14.195
       '@types/lodash-es': 4.17.7
       '@vueuse/core': 9.13.0
@@ -3475,7 +3027,7 @@ packages:
     resolution: {integrity: sha512-Nv9m36S/vxpsI+Hc4/ZGRs0n9mXqSWGGq49zxb/cJfPAQMbUtttJAlNPS4AQzaBdw/pKskw5bMbekT/Y7W/Wlg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       memory-fs: 0.5.0
       tapable: 1.1.3
     dev: true
@@ -3484,7 +3036,7 @@ packages:
     resolution: {integrity: sha512-LXYT42KJ7lpIKECr2mAXIaMldcNCh/7E0KBKOu4KSfkHmP+mZmSs+8V5gBAqisWBy0OO4W5Oyys0GO1Y8KtdKg==}
     engines: {node: '>=10.13.0'}
     dependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       tapable: 2.2.1
     dev: true
 
@@ -3576,28 +3128,28 @@ packages:
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@esbuild/android-arm': 0.17.19
-      '@esbuild/android-arm64': 0.17.19
-      '@esbuild/android-x64': 0.17.19
-      '@esbuild/darwin-arm64': 0.17.19
-      '@esbuild/darwin-x64': 0.17.19
-      '@esbuild/freebsd-arm64': 0.17.19
-      '@esbuild/freebsd-x64': 0.17.19
-      '@esbuild/linux-arm': 0.17.19
-      '@esbuild/linux-arm64': 0.17.19
-      '@esbuild/linux-ia32': 0.17.19
-      '@esbuild/linux-loong64': 0.17.19
-      '@esbuild/linux-mips64el': 0.17.19
-      '@esbuild/linux-ppc64': 0.17.19
-      '@esbuild/linux-riscv64': 0.17.19
-      '@esbuild/linux-s390x': 0.17.19
-      '@esbuild/linux-x64': 0.17.19
-      '@esbuild/netbsd-x64': 0.17.19
-      '@esbuild/openbsd-x64': 0.17.19
-      '@esbuild/sunos-x64': 0.17.19
-      '@esbuild/win32-arm64': 0.17.19
-      '@esbuild/win32-ia32': 0.17.19
-      '@esbuild/win32-x64': 0.17.19
+      '@esbuild/android-arm': registry.npmmirror.com/@esbuild/android-arm@0.17.19
+      '@esbuild/android-arm64': registry.npmmirror.com/@esbuild/android-arm64@0.17.19
+      '@esbuild/android-x64': registry.npmmirror.com/@esbuild/android-x64@0.17.19
+      '@esbuild/darwin-arm64': registry.npmmirror.com/@esbuild/darwin-arm64@0.17.19
+      '@esbuild/darwin-x64': registry.npmmirror.com/@esbuild/darwin-x64@0.17.19
+      '@esbuild/freebsd-arm64': registry.npmmirror.com/@esbuild/freebsd-arm64@0.17.19
+      '@esbuild/freebsd-x64': registry.npmmirror.com/@esbuild/freebsd-x64@0.17.19
+      '@esbuild/linux-arm': registry.npmmirror.com/@esbuild/linux-arm@0.17.19
+      '@esbuild/linux-arm64': registry.npmmirror.com/@esbuild/linux-arm64@0.17.19
+      '@esbuild/linux-ia32': registry.npmmirror.com/@esbuild/linux-ia32@0.17.19
+      '@esbuild/linux-loong64': registry.npmmirror.com/@esbuild/linux-loong64@0.17.19
+      '@esbuild/linux-mips64el': registry.npmmirror.com/@esbuild/linux-mips64el@0.17.19
+      '@esbuild/linux-ppc64': registry.npmmirror.com/@esbuild/linux-ppc64@0.17.19
+      '@esbuild/linux-riscv64': registry.npmmirror.com/@esbuild/linux-riscv64@0.17.19
+      '@esbuild/linux-s390x': registry.npmmirror.com/@esbuild/linux-s390x@0.17.19
+      '@esbuild/linux-x64': registry.npmmirror.com/@esbuild/linux-x64@0.17.19
+      '@esbuild/netbsd-x64': registry.npmmirror.com/@esbuild/netbsd-x64@0.17.19
+      '@esbuild/openbsd-x64': registry.npmmirror.com/@esbuild/openbsd-x64@0.17.19
+      '@esbuild/sunos-x64': registry.npmmirror.com/@esbuild/sunos-x64@0.17.19
+      '@esbuild/win32-arm64': registry.npmmirror.com/@esbuild/win32-arm64@0.17.19
+      '@esbuild/win32-ia32': registry.npmmirror.com/@esbuild/win32-ia32@0.17.19
+      '@esbuild/win32-x64': registry.npmmirror.com/@esbuild/win32-x64@0.17.19
     dev: true
 
   /esbuild@0.18.10:
@@ -3606,28 +3158,28 @@ packages:
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@esbuild/android-arm': 0.18.10
-      '@esbuild/android-arm64': 0.18.10
-      '@esbuild/android-x64': 0.18.10
-      '@esbuild/darwin-arm64': 0.18.10
-      '@esbuild/darwin-x64': 0.18.10
-      '@esbuild/freebsd-arm64': 0.18.10
-      '@esbuild/freebsd-x64': 0.18.10
-      '@esbuild/linux-arm': 0.18.10
-      '@esbuild/linux-arm64': 0.18.10
-      '@esbuild/linux-ia32': 0.18.10
-      '@esbuild/linux-loong64': 0.18.10
-      '@esbuild/linux-mips64el': 0.18.10
-      '@esbuild/linux-ppc64': 0.18.10
-      '@esbuild/linux-riscv64': 0.18.10
-      '@esbuild/linux-s390x': 0.18.10
-      '@esbuild/linux-x64': 0.18.10
-      '@esbuild/netbsd-x64': 0.18.10
-      '@esbuild/openbsd-x64': 0.18.10
-      '@esbuild/sunos-x64': 0.18.10
-      '@esbuild/win32-arm64': 0.18.10
-      '@esbuild/win32-ia32': 0.18.10
-      '@esbuild/win32-x64': 0.18.10
+      '@esbuild/android-arm': registry.npmmirror.com/@esbuild/android-arm@0.18.10
+      '@esbuild/android-arm64': registry.npmmirror.com/@esbuild/android-arm64@0.18.10
+      '@esbuild/android-x64': registry.npmmirror.com/@esbuild/android-x64@0.18.10
+      '@esbuild/darwin-arm64': registry.npmmirror.com/@esbuild/darwin-arm64@0.18.10
+      '@esbuild/darwin-x64': registry.npmmirror.com/@esbuild/darwin-x64@0.18.10
+      '@esbuild/freebsd-arm64': registry.npmmirror.com/@esbuild/freebsd-arm64@0.18.10
+      '@esbuild/freebsd-x64': registry.npmmirror.com/@esbuild/freebsd-x64@0.18.10
+      '@esbuild/linux-arm': registry.npmmirror.com/@esbuild/linux-arm@0.18.10
+      '@esbuild/linux-arm64': registry.npmmirror.com/@esbuild/linux-arm64@0.18.10
+      '@esbuild/linux-ia32': registry.npmmirror.com/@esbuild/linux-ia32@0.18.10
+      '@esbuild/linux-loong64': registry.npmmirror.com/@esbuild/linux-loong64@0.18.10
+      '@esbuild/linux-mips64el': registry.npmmirror.com/@esbuild/linux-mips64el@0.18.10
+      '@esbuild/linux-ppc64': registry.npmmirror.com/@esbuild/linux-ppc64@0.18.10
+      '@esbuild/linux-riscv64': registry.npmmirror.com/@esbuild/linux-riscv64@0.18.10
+      '@esbuild/linux-s390x': registry.npmmirror.com/@esbuild/linux-s390x@0.18.10
+      '@esbuild/linux-x64': registry.npmmirror.com/@esbuild/linux-x64@0.18.10
+      '@esbuild/netbsd-x64': registry.npmmirror.com/@esbuild/netbsd-x64@0.18.10
+      '@esbuild/openbsd-x64': registry.npmmirror.com/@esbuild/openbsd-x64@0.18.10
+      '@esbuild/sunos-x64': registry.npmmirror.com/@esbuild/sunos-x64@0.18.10
+      '@esbuild/win32-arm64': registry.npmmirror.com/@esbuild/win32-arm64@0.18.10
+      '@esbuild/win32-ia32': registry.npmmirror.com/@esbuild/win32-ia32@0.18.10
+      '@esbuild/win32-x64': registry.npmmirror.com/@esbuild/win32-x64@0.18.10
     dev: true
 
   /escalade@3.1.1:
@@ -4279,7 +3831,7 @@ packages:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
     dependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
@@ -4313,14 +3865,6 @@ packages:
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
-
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /function-bind@1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -4569,7 +4113,7 @@ packages:
       h3: '>=1.6.0'
     dependencies:
       formidable: 3.4.0
-      h3: 1.7.0
+      h3: registry.npmmirror.com/h3@1.7.0
     dev: false
 
   /h3@1.7.0:
@@ -4582,6 +4126,7 @@ packages:
       radix3: 1.0.1
       ufo: 1.1.2
       uncrypto: 0.1.3
+    dev: true
 
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
@@ -4857,6 +4402,7 @@ packages:
 
   /iron-webcrypto@0.7.1:
     resolution: {integrity: sha512-K/UmlEhPCPXEHV5hAtH5C0tI5JnFuOrv4yO/j7ODPl3HaiiHBLbOLTde+ieUaAyfCATe4LoAnclyF+hmSCOVmQ==}
+    dev: true
 
   /is-alphabetical@1.0.4:
     resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==}
@@ -5197,7 +4743,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
     dev: true
 
   /jsonpointer@5.0.1:
@@ -6071,7 +5617,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
   /nuxt@3.6.1(@types/node@20.3.2)(eslint@8.43.0)(sass@1.63.6)(typescript@5.1.5):
@@ -6091,7 +5637,7 @@ packages:
       '@nuxt/telemetry': 2.2.0
       '@nuxt/ui-templates': 1.2.0
       '@nuxt/vite-builder': 3.6.1(@types/node@20.3.2)(eslint@8.43.0)(sass@1.63.6)(typescript@5.1.5)(vue@3.3.4)
-      '@types/node': 20.3.2
+      '@types/node': registry.npmmirror.com/@types/node@20.3.2
       '@unhead/ssr': 1.1.28
       '@unhead/vue': 1.1.28(vue@3.3.4)
       '@vue/shared': 3.3.4
@@ -6507,7 +6053,7 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.0
       typescript: 5.1.5
-      vue-demi: 0.14.5
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
     dev: true
 
   /pkg-types@1.0.3:
@@ -6898,6 +6444,7 @@ packages:
 
   /radix3@1.0.1:
     resolution: {integrity: sha512-y+AcwZ3HcUIGc9zGsNVf5+BY/LxL+z+4h4J3/pp8jxSmy1STaCocPS3qrj4tA5ehUSzqtqK+0Aygvz/r/8vy4g==}
+    dev: true
 
   /randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
@@ -7107,7 +6654,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
   /run-async@2.4.1:
@@ -7695,6 +7242,7 @@ packages:
 
   /ufo@1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+    dev: true
 
   /ultrahtml@1.2.0:
     resolution: {integrity: sha512-vxZM2yNvajRmCj/SknRYGNXk2tqiy6kRNvZjJLaleG3zJbSh/aNkOqD1/CVzypw8tyHyhpzYuwQgMMhUB4ZVNQ==}
@@ -7719,6 +7267,7 @@ packages:
 
   /uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
+    dev: true
 
   /unctx@2.3.1:
     resolution: {integrity: sha512-PhKke8ZYauiqh3FEMVNm7ljvzQiph0Mt3GBRve03IJm7ukfaON2OBK795tLwhbyfzknuRRkW0+Ze+CQUmzOZ+A==}
@@ -8058,13 +7607,13 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.3.2
+      '@types/node': registry.npmmirror.com/@types/node@20.3.2
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.25.3
       sass: 1.63.6
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents@2.3.2
     dev: true
 
   /vscode-jsonrpc@6.0.0:
@@ -8358,14 +7907,14 @@ packages:
     dev: true
 
   registry.nlark.com/cachedir@2.3.0:
-    resolution: {integrity: sha1-DHWJKgUhmPCyHHwYBNgzHt/K4Og=, registry: https://registry.npmmirror.com/, tarball: https://registry.nlark.com/cachedir/download/cachedir-2.3.0.tgz}
+    resolution: {integrity: sha1-DHWJKgUhmPCyHHwYBNgzHt/K4Og=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/cachedir/download/cachedir-2.3.0.tgz}
     name: cachedir
     version: 2.3.0
     engines: {node: '>=6'}
     dev: true
 
   registry.nlark.com/cz-conventional-changelog@3.3.0:
-    resolution: {integrity: sha1-kkaUfJBAQUmz/iz37pGsrTt9ItI=, registry: https://registry.npmmirror.com/, tarball: https://registry.nlark.com/cz-conventional-changelog/download/cz-conventional-changelog-3.3.0.tgz}
+    resolution: {integrity: sha1-kkaUfJBAQUmz/iz37pGsrTt9ItI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/cz-conventional-changelog/download/cz-conventional-changelog-3.3.0.tgz}
     name: cz-conventional-changelog
     version: 3.3.0
     engines: {node: '>= 10'}
@@ -8377,22 +7926,751 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 17.5.0
+      '@commitlint/load': registry.npmmirror.com/@commitlint/load@17.5.0
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
     dev: true
 
   registry.nlark.com/find-root@1.1.0:
-    resolution: {integrity: sha1-q8/Iunb3CMQql7PWhbfpRQv7nOQ=, registry: https://registry.npmmirror.com/, tarball: https://registry.nlark.com/find-root/download/find-root-1.1.0.tgz}
+    resolution: {integrity: sha1-q8/Iunb3CMQql7PWhbfpRQv7nOQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/find-root/download/find-root-1.1.0.tgz}
     name: find-root
     version: 1.1.0
     dev: true
 
   registry.nlark.com/yn@3.1.1:
-    resolution: {integrity: sha1-HodAGgnXZ8HV6rJqbkwYUYLS61A=, registry: https://registry.npmmirror.com/, tarball: https://registry.nlark.com/yn/download/yn-3.1.1.tgz}
+    resolution: {integrity: sha1-HodAGgnXZ8HV6rJqbkwYUYLS61A=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/yn/download/yn-3.1.1.tgz}
     name: yn
     version: 3.1.1
     engines: {node: '>=6'}
     dev: true
     optional: true
+
+  registry.npmmirror.com/@commitlint/load@17.5.0:
+    resolution: {integrity: sha512-l+4W8Sx4CD5rYFsrhHH8HP01/8jEP7kKf33Xlx2Uk2out/UKoKPYMOIRcDH5ppT8UXLMV+x6Wm5osdRKKgaD1Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@commitlint/load/-/load-17.5.0.tgz}
+    name: '@commitlint/load'
+    version: 17.5.0
+    engines: {node: '>=v14'}
+    requiresBuild: true
+    dependencies:
+      '@commitlint/config-validator': 17.4.4
+      '@commitlint/execute-rule': 17.4.0
+      '@commitlint/resolve-extends': 17.4.4
+      '@commitlint/types': 17.4.4
+      '@types/node': 20.3.2
+      chalk: 4.1.2
+      cosmiconfig: 8.2.0
+      cosmiconfig-typescript-loader: 4.3.0(@types/node@20.3.2)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.5)
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      lodash.uniq: 4.5.0
+      resolve-from: 5.0.0
+      ts-node: 10.9.1(@types/node@20.3.2)(typescript@5.1.5)
+      typescript: 5.1.5
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-arm64@0.17.19:
+    resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-arm64/-/android-arm64-0.17.19.tgz}
+    name: '@esbuild/android-arm64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-arm64@0.18.10:
+    resolution: {integrity: sha512-ynm4naLbNbK0ajf9LUWtQB+6Vfg1Z/AplArqr4tGebC00Z6m9Y91OVIcjDa461wGcZwcaHYaZAab4yJxfhisTQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-arm64/-/android-arm64-0.18.10.tgz}
+    name: '@esbuild/android-arm64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-arm@0.17.19:
+    resolution: {integrity: sha512-rIKddzqhmav7MSmoFCmDIb6e2W57geRsM94gV2l38fzhXMwq7hZoClug9USI2pFRGL06f4IOPHHpFNOkWieR8A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-arm/-/android-arm-0.17.19.tgz}
+    name: '@esbuild/android-arm'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-arm@0.18.10:
+    resolution: {integrity: sha512-3KClmVNd+Fku82uZJz5C4Rx8m1PPmWUFz5Zkw8jkpZPOmsq+EG1TTOtw1OXkHuX3WczOFQigrtf60B1ijKwNsg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-arm/-/android-arm-0.18.10.tgz}
+    name: '@esbuild/android-arm'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-x64@0.17.19:
+    resolution: {integrity: sha512-uUTTc4xGNDT7YSArp/zbtmbhO0uEEK9/ETW29Wk1thYUJBz3IVnvgEiEwEa9IeLyvnpKrWK64Utw2bgUmDveww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-x64/-/android-x64-0.17.19.tgz}
+    name: '@esbuild/android-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/android-x64@0.18.10:
+    resolution: {integrity: sha512-vFfXj8P9Yfjh54yqUDEHKzqzYuEfPyAOl3z7R9hjkwt+NCvbn9VMxX+IILnAfdImRBfYVItgSUsqGKhJFnBwZw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-x64/-/android-x64-0.18.10.tgz}
+    name: '@esbuild/android-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/darwin-arm64@0.17.19:
+    resolution: {integrity: sha512-80wEoCfF/hFKM6WE1FyBHc9SfUblloAWx6FJkFWTWiCoht9Mc0ARGEM47e67W9rI09YoUxJL68WHfDRYEAvOhg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/darwin-arm64/-/darwin-arm64-0.17.19.tgz}
+    name: '@esbuild/darwin-arm64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/darwin-arm64@0.18.10:
+    resolution: {integrity: sha512-k2OJQ7ZxE6sVc91+MQeZH9gFeDAH2uIYALPAwTjTCvcPy9Dzrf7V7gFUQPYkn09zloWhQ+nvxWHia2x2ZLR0sQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/darwin-arm64/-/darwin-arm64-0.18.10.tgz}
+    name: '@esbuild/darwin-arm64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/darwin-x64@0.17.19:
+    resolution: {integrity: sha512-IJM4JJsLhRYr9xdtLytPLSH9k/oxR3boaUIYiHkAawtwNOXKE8KoU8tMvryogdcT8AU+Bflmh81Xn6Q0vTZbQw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/darwin-x64/-/darwin-x64-0.17.19.tgz}
+    name: '@esbuild/darwin-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/darwin-x64@0.18.10:
+    resolution: {integrity: sha512-tnz/mdZk1L1Z3WpGjin/L2bKTe8/AKZpI8fcCLtH+gq8WXWsCNJSxlesAObV4qbtTl6pG5vmqFXfWUQ5hV8PAQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/darwin-x64/-/darwin-x64-0.18.10.tgz}
+    name: '@esbuild/darwin-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/freebsd-arm64@0.17.19:
+    resolution: {integrity: sha512-pBwbc7DufluUeGdjSU5Si+P3SoMF5DQ/F/UmTSb8HXO80ZEAJmrykPyzo1IfNbAoaqw48YRpv8shwd1NoI0jcQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.17.19.tgz}
+    name: '@esbuild/freebsd-arm64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/freebsd-arm64@0.18.10:
+    resolution: {integrity: sha512-QJluV0LwBrbHnYYwSKC+K8RGz0g/EyhpQH1IxdoFT0nM7PfgjE+aS8wxq/KFEsU0JkL7U/EEKd3O8xVBxXb2aA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.18.10.tgz}
+    name: '@esbuild/freebsd-arm64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/freebsd-x64@0.17.19:
+    resolution: {integrity: sha512-4lu+n8Wk0XlajEhbEffdy2xy53dpR06SlzvhGByyg36qJw6Kpfk7cp45DR/62aPH9mtJRmIyrXAS5UWBrJT6TQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/freebsd-x64/-/freebsd-x64-0.17.19.tgz}
+    name: '@esbuild/freebsd-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/freebsd-x64@0.18.10:
+    resolution: {integrity: sha512-Hi/ycUkS6KTw+U9G5PK5NoK7CZboicaKUSVs0FSiPNtuCTzK6HNM4DIgniH7hFaeuszDS9T4dhAHWiLSt/Y5Ng==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.10.tgz}
+    name: '@esbuild/freebsd-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-arm64@0.17.19:
+    resolution: {integrity: sha512-ct1Tg3WGwd3P+oZYqic+YZF4snNl2bsnMKRkb3ozHmnM0dGWuxcPTTntAF6bOP0Sp4x0PjSF+4uHQ1xvxfRKqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-arm64/-/linux-arm64-0.17.19.tgz}
+    name: '@esbuild/linux-arm64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-arm64@0.18.10:
+    resolution: {integrity: sha512-Nz6XcfRBOO7jSrVpKAyEyFOPGhySPNlgumSDhWAspdQQ11ub/7/NZDMhWDFReE9QH/SsCOCLQbdj0atAk/HMOQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-arm64/-/linux-arm64-0.18.10.tgz}
+    name: '@esbuild/linux-arm64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-arm@0.17.19:
+    resolution: {integrity: sha512-cdmT3KxjlOQ/gZ2cjfrQOtmhG4HJs6hhvm3mWSRDPtZ/lP5oe8FWceS10JaSJC13GBd4eH/haHnqf7hhGNLerA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-arm/-/linux-arm-0.17.19.tgz}
+    name: '@esbuild/linux-arm'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-arm@0.18.10:
+    resolution: {integrity: sha512-HfFoxY172tVHPIvJy+FHxzB4l8xU7e5cxmNS11cQ2jt4JWAukn/7LXaPdZid41UyTweqa4P/1zs201gRGCTwHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-arm/-/linux-arm-0.18.10.tgz}
+    name: '@esbuild/linux-arm'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-ia32@0.17.19:
+    resolution: {integrity: sha512-w4IRhSy1VbsNxHRQpeGCHEmibqdTUx61Vc38APcsRbuVgK0OPEnQ0YD39Brymn96mOx48Y2laBQGqgZ0j9w6SQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-ia32/-/linux-ia32-0.17.19.tgz}
+    name: '@esbuild/linux-ia32'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-ia32@0.18.10:
+    resolution: {integrity: sha512-otMdmSmkMe+pmiP/bZBjfphyAsTsngyT9RCYwoFzqrveAbux9nYitDTpdgToG0Z0U55+PnH654gCH2GQ1aB6Yw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-ia32/-/linux-ia32-0.18.10.tgz}
+    name: '@esbuild/linux-ia32'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-loong64@0.17.19:
+    resolution: {integrity: sha512-2iAngUbBPMq439a+z//gE+9WBldoMp1s5GWsUSgqHLzLJ9WoZLZhpwWuym0u0u/4XmZ3gpHmzV84PonE+9IIdQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-loong64/-/linux-loong64-0.17.19.tgz}
+    name: '@esbuild/linux-loong64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [loong64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-loong64@0.18.10:
+    resolution: {integrity: sha512-t8tjFuON1koxskzQ4VFoh0T5UDUMiLYjwf9Wktd0tx8AoK6xgU+5ubKOpWpcnhEQ2tESS5u0v6QuN8PX/ftwcQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-loong64/-/linux-loong64-0.18.10.tgz}
+    name: '@esbuild/linux-loong64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [loong64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-mips64el@0.17.19:
+    resolution: {integrity: sha512-LKJltc4LVdMKHsrFe4MGNPp0hqDFA1Wpt3jE1gEyM3nKUvOiO//9PheZZHfYRfYl6AwdTH4aTcXSqBerX0ml4A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-mips64el/-/linux-mips64el-0.17.19.tgz}
+    name: '@esbuild/linux-mips64el'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-mips64el@0.18.10:
+    resolution: {integrity: sha512-+dUkcVzcfEJHz3HEnVpIJu8z8Wdn2n/nWMWdl6FVPFGJAVySO4g3+XPzNKFytVFwf8hPVDwYXzVcu8GMFqsqZw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-mips64el/-/linux-mips64el-0.18.10.tgz}
+    name: '@esbuild/linux-mips64el'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-ppc64@0.17.19:
+    resolution: {integrity: sha512-/c/DGybs95WXNS8y3Ti/ytqETiW7EU44MEKuCAcpPto3YjQbyK3IQVKfF6nbghD7EcLUGl0NbiL5Rt5DMhn5tg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-ppc64/-/linux-ppc64-0.17.19.tgz}
+    name: '@esbuild/linux-ppc64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-ppc64@0.18.10:
+    resolution: {integrity: sha512-sO3PjjxEGy+PY2qkGe2gwJbXdZN9wAYpVBZWFD0AwAoKuXRkWK0/zaMQ5ekUFJDRDCRm8x5U0Axaub7ynH/wVg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-ppc64/-/linux-ppc64-0.18.10.tgz}
+    name: '@esbuild/linux-ppc64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-riscv64@0.17.19:
+    resolution: {integrity: sha512-FC3nUAWhvFoutlhAkgHf8f5HwFWUL6bYdvLc/TTuxKlvLi3+pPzdZiFKSWz/PF30TB1K19SuCxDTI5KcqASJqA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-riscv64/-/linux-riscv64-0.17.19.tgz}
+    name: '@esbuild/linux-riscv64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [riscv64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-riscv64@0.18.10:
+    resolution: {integrity: sha512-JDtdbJg3yjDeXLv4lZYE1kiTnxv73/8cbPHY9T/dUKi8rYOM/k5b3W4UJLMUksuQ6nTm5c89W1nADsql6FW75A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-riscv64/-/linux-riscv64-0.18.10.tgz}
+    name: '@esbuild/linux-riscv64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [riscv64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-s390x@0.17.19:
+    resolution: {integrity: sha512-IbFsFbxMWLuKEbH+7sTkKzL6NJmG2vRyy6K7JJo55w+8xDk7RElYn6xvXtDW8HCfoKBFK69f3pgBJSUSQPr+4Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-s390x/-/linux-s390x-0.17.19.tgz}
+    name: '@esbuild/linux-s390x'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [s390x]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-s390x@0.18.10:
+    resolution: {integrity: sha512-NLuSKcp8WckjD2a7z5kzLiCywFwBTMlIxDNuud1AUGVuwBBJSkuubp6cNjJ0p5c6CZaA3QqUGwjHJBiG1SoOFw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-s390x/-/linux-s390x-0.18.10.tgz}
+    name: '@esbuild/linux-s390x'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [s390x]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-x64@0.17.19:
+    resolution: {integrity: sha512-68ngA9lg2H6zkZcyp22tsVt38mlhWde8l3eJLWkyLrp4HwMUr3c1s/M2t7+kHIhvMjglIBrFpncX1SzMckomGw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-x64/-/linux-x64-0.17.19.tgz}
+    name: '@esbuild/linux-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/linux-x64@0.18.10:
+    resolution: {integrity: sha512-wj2KRsCsFusli+6yFgNO/zmmLslislAWryJnodteRmGej7ZzinIbMdsyp13rVGde88zxJd5vercNYK9kuvlZaQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/linux-x64/-/linux-x64-0.18.10.tgz}
+    name: '@esbuild/linux-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/netbsd-x64@0.17.19:
+    resolution: {integrity: sha512-CwFq42rXCR8TYIjIfpXCbRX0rp1jo6cPIUPSaWwzbVI4aOfX96OXY8M6KNmtPcg7QjYeDmN+DD0Wp3LaBOLf4Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/netbsd-x64/-/netbsd-x64-0.17.19.tgz}
+    name: '@esbuild/netbsd-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/netbsd-x64@0.18.10:
+    resolution: {integrity: sha512-pQ9QqxEPI3cVRZyUtCoZxhZK3If+7RzR8L2yz2+TDzdygofIPOJFaAPkEJ5rYIbUO101RaiYxfdOBahYexLk5A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/netbsd-x64/-/netbsd-x64-0.18.10.tgz}
+    name: '@esbuild/netbsd-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/openbsd-x64@0.17.19:
+    resolution: {integrity: sha512-cnq5brJYrSZ2CF6c35eCmviIN3k3RczmHz8eYaVlNasVqsNY+JKohZU5MKmaOI+KkllCdzOKKdPs762VCPC20g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/openbsd-x64/-/openbsd-x64-0.17.19.tgz}
+    name: '@esbuild/openbsd-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/openbsd-x64@0.18.10:
+    resolution: {integrity: sha512-k8GTIIW9I8pEEfoOUm32TpPMgSg06JhL5DO+ql66aLTkOQUs0TxCA67Wi7pv6z8iF8STCGcNbm3UWFHLuci+ag==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/openbsd-x64/-/openbsd-x64-0.18.10.tgz}
+    name: '@esbuild/openbsd-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/sunos-x64@0.17.19:
+    resolution: {integrity: sha512-vCRT7yP3zX+bKWFeP/zdS6SqdWB8OIpaRq/mbXQxTGHnIxspRtigpkUcDMlSCOejlHowLqII7K2JKevwyRP2rg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/sunos-x64/-/sunos-x64-0.17.19.tgz}
+    name: '@esbuild/sunos-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/sunos-x64@0.18.10:
+    resolution: {integrity: sha512-vIGYJIdEI6d4JBucAx8py792G8J0GP40qSH+EvSt80A4zvGd6jph+5t1g+eEXcS2aRpgZw6CrssNCFZxTdEsxw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/sunos-x64/-/sunos-x64-0.18.10.tgz}
+    name: '@esbuild/sunos-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-arm64@0.17.19:
+    resolution: {integrity: sha512-yYx+8jwowUstVdorcMdNlzklLYhPxjniHWFKgRqH7IFlUEa0Umu3KuYplf1HUZZ422e3NU9F4LGb+4O0Kdcaag==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-arm64/-/win32-arm64-0.17.19.tgz}
+    name: '@esbuild/win32-arm64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-arm64@0.18.10:
+    resolution: {integrity: sha512-kRhNcMZFGMW+ZHCarAM1ypr8OZs0k688ViUCetVCef9p3enFxzWeBg9h/575Y0nsFu0ZItluCVF5gMR2pwOEpA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-arm64/-/win32-arm64-0.18.10.tgz}
+    name: '@esbuild/win32-arm64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-ia32@0.17.19:
+    resolution: {integrity: sha512-eggDKanJszUtCdlVs0RB+h35wNlb5v4TWEkq4vZcmVt5u/HiDZrTXe2bWFQUez3RgNHwx/x4sk5++4NSSicKkw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-ia32/-/win32-ia32-0.17.19.tgz}
+    name: '@esbuild/win32-ia32'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-ia32@0.18.10:
+    resolution: {integrity: sha512-AR9PX1whYaYh9p0EOaKna0h48F/A101Mt/ag72+kMkkBZXPQ7cjbz2syXI/HI3OlBdUytSdHneljfjvUoqwqiQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-ia32/-/win32-ia32-0.18.10.tgz}
+    name: '@esbuild/win32-ia32'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-x64@0.17.19:
+    resolution: {integrity: sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz}
+    name: '@esbuild/win32-x64'
+    version: 0.17.19
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@esbuild/win32-x64@0.18.10:
+    resolution: {integrity: sha512-5sTkYhAGHNRr6bVf4RM0PsscqVr6/DBYdrlMh168oph3usid3lKHcHEEHmr34iZ9GHeeg2juFOxtpl6XyC3tpw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/win32-x64/-/win32-x64-0.18.10.tgz}
+    name: '@esbuild/win32-x64'
+    version: 0.18.10
+    engines: {node: '>=12'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@sxzz/popperjs-es@2.11.7:
+    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@sxzz/popperjs-es/-/popperjs-es-2.11.7.tgz}
+    name: '@sxzz/popperjs-es'
+    version: 2.11.7
+
+  registry.npmmirror.com/@types/node@20.3.2:
+    resolution: {integrity: sha512-vOBLVQeCQfIcF/2Y7eKFTqrMnizK5lRNQ7ykML/5RuwVXVWxYkgwS7xbt4B6fKCUPgbSL5FSsjHQpaGQP/dQmw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-20.3.2.tgz}
+    name: '@types/node'
+    version: 20.3.2
+    dev: true
+
+  registry.npmmirror.com/@types/web-bluetooth@0.0.16:
+    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz}
+    name: '@types/web-bluetooth'
+    version: 0.0.16
+
+  registry.npmmirror.com/@types/web-bluetooth@0.0.17:
+    resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/web-bluetooth/-/web-bluetooth-0.0.17.tgz}
+    name: '@types/web-bluetooth'
+    version: 0.0.17
+
+  registry.npmmirror.com/@vueuse/components@10.2.1:
+    resolution: {integrity: sha512-S21ZAfNSRouD/UokdGjBIrzvXH8WS7sz4t47ZWP+QRVWfsK9aIc5PmKMgkQrR5e8K3aNLiczqX8TuBa+l+CmDA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/components/-/components-10.2.1.tgz}
+    name: '@vueuse/components'
+    version: 10.2.1
+    dependencies:
+      '@vueuse/core': registry.npmmirror.com/@vueuse/core@10.2.1
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared@10.2.1
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  registry.npmmirror.com/@vueuse/core@10.2.1:
+    resolution: {integrity: sha512-c441bfMbkAwTNwVRHQ0zdYZNETK//P84rC01aP2Uy/aRFCiie9NE/k9KdIXbno0eDYP5NPUuWv0aA/I4Unr/7w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/core/-/core-10.2.1.tgz}
+    name: '@vueuse/core'
+    version: 10.2.1
+    dependencies:
+      '@types/web-bluetooth': registry.npmmirror.com/@types/web-bluetooth@0.0.17
+      '@vueuse/metadata': registry.npmmirror.com/@vueuse/metadata@10.2.1
+      '@vueuse/shared': registry.npmmirror.com/@vueuse/shared@10.2.1
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  registry.npmmirror.com/@vueuse/metadata@10.2.0:
+    resolution: {integrity: sha512-IR7Mkq6QSgZ38q/2ZzOt+Zz1OpcEsnwE64WBumDQ+RGKrosFCtUA2zgRrOqDEzPBXrVB+4HhFkwDjQMu0fDBKw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/metadata/-/metadata-10.2.0.tgz}
+    name: '@vueuse/metadata'
+    version: 10.2.0
+    dev: true
+
+  registry.npmmirror.com/@vueuse/metadata@10.2.1:
+    resolution: {integrity: sha512-3Gt68mY/i6bQvFqx7cuGBzrCCQu17OBaGWS5JdwISpMsHnMKKjC2FeB5OAfMcCQ0oINfADP3i9A4PPRo0peHdQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/metadata/-/metadata-10.2.1.tgz}
+    name: '@vueuse/metadata'
+    version: 10.2.1
+    dev: false
+
+  registry.npmmirror.com/@vueuse/metadata@9.13.0:
+    resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/metadata/-/metadata-9.13.0.tgz}
+    name: '@vueuse/metadata'
+    version: 9.13.0
+
+  registry.npmmirror.com/@vueuse/shared@10.2.0:
+    resolution: {integrity: sha512-dIeA8+g9Av3H5iF4NXR/sft4V6vys76CpZ6hxwj8eMXybXk2WRl3scSsOVi+kQ9SX38COR7AH7WwY83UcuxbSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/shared/-/shared-10.2.0.tgz}
+    name: '@vueuse/shared'
+    version: 10.2.0
+    dependencies:
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
+
+  registry.npmmirror.com/@vueuse/shared@10.2.1:
+    resolution: {integrity: sha512-QWHq2bSuGptkcxx4f4M/fBYC3Y8d3M2UYyLsyzoPgEoVzJURQ0oJeWXu79OiLlBb8gTKkqe4mO85T/sf39mmiw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/shared/-/shared-10.2.1.tgz}
+    name: '@vueuse/shared'
+    version: 10.2.1
+    dependencies:
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  registry.npmmirror.com/@vueuse/shared@9.13.0:
+    resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vueuse/shared/-/shared-9.13.0.tgz}
+    name: '@vueuse/shared'
+    version: 9.13.0
+    dependencies:
+      vue-demi: registry.npmmirror.com/vue-demi@0.14.5
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  registry.npmmirror.com/cookie-es@1.0.0:
+    resolution: {integrity: sha512-mWYvfOLrfEc996hlKcdABeIiPHUPC6DM2QYZdGGOvhOTbA3tjm2eBwqlJpoFdjC89NI4Qt6h0Pu06Mp+1Pj5OQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cookie-es/-/cookie-es-1.0.0.tgz}
+    name: cookie-es
+    version: 1.0.0
+    dev: false
+
+  registry.npmmirror.com/defu@6.1.2:
+    resolution: {integrity: sha512-+uO4+qr7msjNNWKYPHqN/3+Dx3NFkmIzayk2L1MyZQlvgZb/J1A0fo410dpKrN2SnqFjt8n4JL8fDJE0wIgjFQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/defu/-/defu-6.1.2.tgz}
+    name: defu
+    version: 6.1.2
+    dev: false
+
+  registry.npmmirror.com/destr@2.0.0:
+    resolution: {integrity: sha512-FJ9RDpf3GicEBvzI3jxc2XhHzbqD8p4ANw/1kPsFBfTvP1b7Gn/Lg1vO7R9J4IVgoMbyUmFrFGZafJ1hPZpvlg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/destr/-/destr-2.0.0.tgz}
+    name: destr
+    version: 2.0.0
+    dev: false
+
+  registry.npmmirror.com/fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/graceful-fs@4.2.11:
+    resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.11.tgz}
+    name: graceful-fs
+    version: 4.2.11
+    requiresBuild: true
+    dev: true
+
+  registry.npmmirror.com/h3@1.7.0:
+    resolution: {integrity: sha512-iJJz2Pn2rC0j8CB3rkFMs0K269W7hDVOC7eL3qne5Joy4JZX1W7id7PBFV593GboHDOx0PzgO6ocqsynrIvdxw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/h3/-/h3-1.7.0.tgz}
+    name: h3
+    version: 1.7.0
+    dependencies:
+      cookie-es: registry.npmmirror.com/cookie-es@1.0.0
+      defu: registry.npmmirror.com/defu@6.1.2
+      destr: registry.npmmirror.com/destr@2.0.0
+      iron-webcrypto: registry.npmmirror.com/iron-webcrypto@0.7.1
+      radix3: registry.npmmirror.com/radix3@1.0.1
+      ufo: registry.npmmirror.com/ufo@1.1.2
+      uncrypto: registry.npmmirror.com/uncrypto@0.1.3
+    dev: false
+
+  registry.npmmirror.com/iron-webcrypto@0.7.1:
+    resolution: {integrity: sha512-K/UmlEhPCPXEHV5hAtH5C0tI5JnFuOrv4yO/j7ODPl3HaiiHBLbOLTde+ieUaAyfCATe4LoAnclyF+hmSCOVmQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/iron-webcrypto/-/iron-webcrypto-0.7.1.tgz}
+    name: iron-webcrypto
+    version: 0.7.1
+    dev: false
+
+  registry.npmmirror.com/nanoid@3.3.6:
+    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/nanoid/-/nanoid-3.3.6.tgz}
+    name: nanoid
+    version: 3.3.6
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: true
+
+  registry.npmmirror.com/picocolors@1.0.0:
+    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz}
+    name: picocolors
+    version: 1.0.0
+    dev: true
+
+  registry.npmmirror.com/postcss@8.4.24:
+    resolution: {integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss/-/postcss-8.4.24.tgz}
+    name: postcss
+    version: 8.4.24
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: registry.npmmirror.com/nanoid@3.3.6
+      picocolors: registry.npmmirror.com/picocolors@1.0.0
+      source-map-js: registry.npmmirror.com/source-map-js@1.0.2
+    dev: true
+
+  registry.npmmirror.com/radix3@1.0.1:
+    resolution: {integrity: sha512-y+AcwZ3HcUIGc9zGsNVf5+BY/LxL+z+4h4J3/pp8jxSmy1STaCocPS3qrj4tA5ehUSzqtqK+0Aygvz/r/8vy4g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/radix3/-/radix3-1.0.1.tgz}
+    name: radix3
+    version: 1.0.1
+    dev: false
+
+  registry.npmmirror.com/source-map-js@1.0.2:
+    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/source-map-js/-/source-map-js-1.0.2.tgz}
+    name: source-map-js
+    version: 1.0.2
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  registry.npmmirror.com/ufo@1.1.2:
+    resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ufo/-/ufo-1.1.2.tgz}
+    name: ufo
+    version: 1.1.2
+    dev: false
+
+  registry.npmmirror.com/uncrypto@0.1.3:
+    resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uncrypto/-/uncrypto-0.1.3.tgz}
+    name: uncrypto
+    version: 0.1.3
+    dev: false
+
+  registry.npmmirror.com/vue-demi@0.14.5:
+    resolution: {integrity: sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.5.tgz}
+    name: vue-demi
+    version: 0.14.5
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
