@@ -13,18 +13,25 @@ interface IconProps {
 const RenderDeleteIcon: FunctionalComponent<IconProps> = ({
   chat,
 }) => {
+  const slot = {
+    reference: () => (
+      <div>
+        <el-tooltip
+          effect="dark"
+          content="删除记录"
+          placement="bottom"
+        >
+          <el-icon class="cursor-pointer">
+            <ElIconDelete />
+          </el-icon>
+        </el-tooltip>
+      </div>
+    ),
+  }
   return (
-    <div onClick={() => handleDelete(chat)}>
-      <el-tooltip
-        effect="dark"
-        content="删除记录"
-        placement="bottom"
-      >
-        <el-icon class="cursor-pointer">
-          <ElIconDelete />
-        </el-icon>
-      </el-tooltip>
-    </div>
+    <el-popconfirm title="是否删除此记录?" hide-after={0} onConfirm={() => handleDelete(chat)}>
+      {slot}
+    </el-popconfirm>
   )
 }
 
