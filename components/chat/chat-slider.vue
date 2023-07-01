@@ -65,7 +65,7 @@ function isActive(uuid: number) {
 </script>
 
 <template>
-  <div class="bg-white w-[260px] h-full flex-col-c py-5 px-2">
+  <div class="bg-white min-w-[260px] h-full flex-col-c py-5 px-2">
     <!-- 创建聊天 -->
     <div
       class="flex-c w-full h-10 rounded-1 text-center line-height-10 cursor-pointer bg-[--btnBgColor] text-[--text-color-primary]"

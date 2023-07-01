@@ -85,7 +85,7 @@ function handleSuccess(val: string) {
 <template>
   <div class="flex h-full">
     <ChatSlider />
-    <div class="flex-1 flex flex-col justify-between border-l-1">
+    <div class="flex-grow flex flex-col justify-between border-l-1">
       <ChatMessage />
       <div class="border-t-1 bg-white py-[10px] px-[20px]">
         <el-input
