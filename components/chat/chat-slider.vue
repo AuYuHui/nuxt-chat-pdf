@@ -6,7 +6,7 @@ import { useChatStore } from '~/stores/chat'
 
 const chatStore = useChatStore()
 
-const dataSources = computed(() => chatStore.chatHistory)
+const dataSources = computed(() => chatStore.history)
 
 interface IconProps {
   chat: Chat.History
@@ -36,6 +36,7 @@ function handleClickHistory() {
     title: 'New Chat',
     isEdit: false,
     uuid: Date.now(),
+    context: [],
   })
 }
 
@@ -47,8 +48,9 @@ function handleDelete({ uuid }: Chat.History) {
   chatStore.deleteHistory(uuid)
 }
 
-function handleEnter({ uuid }: Chat.History, isEdit: boolean) {
-  chatStore.updateHistory(uuid, { isEdit })
+function handleEnter({ uuid, title }: Chat.History, isEdit: boolean) {
+  if (title)
+    chatStore.updateHistory(uuid, { isEdit })
 }
 
 function handleSelect(uuid: number) {
@@ -79,8 +81,8 @@ function isActive(uuid: number) {
     <el-scrollbar class="w-full">
       <div v-for="chat in dataSources" :key="chat.uuid" class="w-full mt-2">
         <div
-          class="flex items-center px-3 py-1 gap-x-2  rounded-1 h-[55px]"
-          :class="isActive(chat.uuid) ? 'bg-[--btnBgColor]' : 'bg-[#F8F9FC]'"
+          class="flex items-center px-3 py-1 gap-x-2  rounded-1 h-[55px] text-[--text-silder-color]"
+          :class="isActive(chat.uuid) ? 'bg-[--btnBgColor]' : 'bg-[#F3F5FB] hover:bg-[--btnBgColor]'"
           @click="handleSelect(chat.uuid)"
         >
           <div>
@@ -92,7 +94,7 @@ function isActive(uuid: number) {
             <div class="max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap font-500 mb-1" :class="{ 'text-[--text-color-primary]': isActive(chat.uuid) }">
               <el-input
                 v-if="chat.isEdit" v-model="chat.title"
-                v-on-click-outside="() => chat.title && (chat.isEdit = false)" size="small" maxlength="50"
+                v-on-click-outside="() => handleEnter(chat, false)" size="small" maxlength="50"
                 @keyup.enter.stop="handleEnter(chat, false)"
               />
               <span v-else>{{ chat.title }}</span>
@@ -110,4 +112,6 @@ function isActive(uuid: number) {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

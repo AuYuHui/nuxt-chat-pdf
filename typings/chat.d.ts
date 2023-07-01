@@ -1,20 +1,22 @@
 declare namespace Chat {
 
-  interface ChatData {
-    uuid?: number
-    dateTime: string
-    text: string
-    inversion?: boolean
-    error?: boolean
+	interface ChatData {
+		content: string,
+		role: "user" | "system" | "assistant";
     loading?: boolean
-		role?: string;
   }
 
   interface History {
     title: string
     isEdit: boolean
     uuid: number
-    loading?: boolean
+		context: ChatData[]
+		loading?: boolean,
+	}
+
+	interface ChatState {
+    active: number | null
+    history: History[]
   }
 
 }
