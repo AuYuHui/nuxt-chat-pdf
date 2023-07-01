@@ -74,7 +74,7 @@ function isActive(uuid: number) {
       <el-icon class="mr-1">
         <ElIconCirclePlus />
       </el-icon>
-      快速创建
+      创建聊天
     </div>
 
     <!-- 历史 记录 -->

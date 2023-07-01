@@ -81,6 +81,7 @@ export const useChatStore = defineStore('chat', {
 	 */
     setActive(uuid: number) {
       this.active = uuid
+      this.recordState()
     },
 
     recordState() {

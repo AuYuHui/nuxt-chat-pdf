@@ -31,8 +31,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "@element-plus/nuxt": "^1.0.5",
+    "@iconify-json/icon-park-outline": "^1.1.11",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@pinecone-database/pinecone": "^0.1.6",
     "@pinia/nuxt": "^0.4.11",
     "@unocss/nuxt": "^0.53.4",
     "@vueuse/nuxt": "^10.2.0",
