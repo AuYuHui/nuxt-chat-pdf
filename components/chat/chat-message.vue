@@ -1,16 +1,10 @@
 <script setup lang="ts">
 export interface Props {
-  context?: Array<Chat.ChatData>
+  context: Array<Chat.ChatData>
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  context: () => [{
-    content: '123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123',
-    role: 'user',
-  }, {
-    content: '123',
-    role: 'system',
-  }],
+withDefaults(defineProps<Props>(), {
+  context: () => [],
 })
 </script>
 

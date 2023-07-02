@@ -20,6 +20,14 @@ function loadState(): Chat.ChatState {
 
 export const useChatStore = defineStore('chat', {
   state: (): Chat.ChatState => loadState(),
+  getters: {
+    getCurrentHistory(state: Chat.ChatState) {
+      const index = state.history.findIndex(item => item.uuid === state.active)
+      if (index !== -1)
+        return state.history[index]
+      return null
+    },
+  },
   actions: {
     /**
    * 添加聊天记录在本地
@@ -73,6 +81,17 @@ export const useChatStore = defineStore('chat', {
         this.active = uuid
       }
       this.recordState()
+    },
+    /**
+		 * 更新当前激活的聊天记录
+		 * @param context 聊天记录
+		 */
+    updateHistoryContext(context: Chat.ChatData) {
+      const index = this.history.findIndex(item => item.uuid === this.active)
+      if (index !== -1) {
+        this.history[index].context.push(context)
+        this.recordState()
+      }
     },
 
     /**

@@ -1,13 +1,20 @@
 <script setup lang="tsx">
 import type { BaseChatMessage, ChainValues } from 'langchain/schema'
 import { AIChatMessage, HumanChatMessage } from 'langchain/schema'
+import { useChatStore } from '~/stores/chat'
 import { ClientOnly } from '#components'
+
+const chatStore = useChatStore()
+const currentChatHistory = computed(() => chatStore.getCurrentHistory)
 
 const prompt = ref('')
 const loading = ref(false)
 const collectionName = ref('')
 const isGoogle = ref(false)
 const history = ref<Array<BaseChatMessage>>([])
+/**
+ * 渲染图标
+ */
 function RenderClearIcon() {
   return (
 		<ClientOnly>
@@ -23,7 +30,9 @@ function RenderClearIcon() {
 		</ClientOnly>
   )
 }
-
+/**
+ * 渲染图标
+ */
 function RenderGoogleIcon() {
   return (
 		<ClientOnly>
@@ -39,7 +48,9 @@ function RenderGoogleIcon() {
 		</ClientOnly>
   )
 }
-
+/**
+ * 渲染图标
+ */
 function RenderIcon() {
   return (
 		<>
@@ -47,6 +58,16 @@ function RenderIcon() {
 			<RenderGoogleIcon />
 		</>
   )
+}
+/** 发送信息 */
+function handleSend() {
+  if (!prompt.value)
+    return
+  chatStore.updateHistoryContext({
+    content: prompt.value,
+    role: 'user',
+  })
+  prompt.value = ''
 }
 
 async function handleQuery() {
@@ -86,7 +107,7 @@ function handleSuccess(val: string) {
   <div class="flex h-full">
     <ChatSlider />
     <div class="flex-grow flex flex-col justify-between border-l-1">
-      <ChatMessage />
+      <ChatMessage :context="currentChatHistory?.context" />
       <div class="border-t-1 bg-white py-[10px] px-[20px]">
         <el-input
           v-model="prompt" :autosize="{ minRows: 3, maxRows: 10 }" type="textarea" placeholder="输入问题"
@@ -96,7 +117,7 @@ function handleSuccess(val: string) {
           <div class="flex">
             <RenderIcon />
           </div>
-          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition">
+          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition" @click="handleSend">
             发送
           </el-button>
         </div>

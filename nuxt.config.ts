@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
   ],
+  devtools: { enabled: true },
 
   build: {
     transpile: lifecycle === 'build' ? ['element-plus'] : [],
