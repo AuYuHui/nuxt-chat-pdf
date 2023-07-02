@@ -8,6 +8,7 @@ import type {
 } from 'element-plus'
 
 export interface Props {
+  visible: boolean // 可见性
   limit?: number
 }
 
@@ -19,11 +20,19 @@ const emit = defineEmits<Emit>()
 
 interface Emit {
   (e: 'success', collection: string): void
+  (e: 'update:visible', visible: boolean): void
 }
 
 const accept
   = 'application/pdf,.pdf,application/json,.json,text/plain,.txt,application/vnd.openxmlformats-officedocument.presentationml.presentation,.pptx,application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx,'
 
+const dialogVisible = computed({
+  get: () => props.visible,
+  set: (visible: boolean) => {
+    emit('update:visible', visible)
+  },
+})
+const activeName = ref(0)
 const uploadRef = ref<UploadInstance>()
 const fileList = ref<UploadUserFile[]>([])
 const loading = ref(false)
@@ -82,30 +91,43 @@ function handleUpload() {
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
-    <el-upload
-      ref="uploadRef"
-      v-model:file-list="fileList"
-      action=""
-      drag
-      :accept="accept"
-      :limit="props.limit"
-      :auto-upload="false"
-      :before-upload="handleBeforeUpdate"
-      :on-exceed="handleExceed"
-      :http-request="handleHttpRequest"
-    >
-      <el-icon class="el-icon--upload">
-        <ElIconUploadFilled />
-      </el-icon>
-      <div class="el-upload__text">
-        上传文件 <em>.txt .pdf .docx</em>
-      </div>
-    </el-upload>
-    <el-button type="primary" :disabled="loading" @click.stop="handleUpload">
-      上传文件
-    </el-button>
-  </div>
+  <el-dialog
+    v-model="dialogVisible"
+    title="添加资料"
+    width="50%"
+  >
+    <el-tabs v-model="activeName" type="border-card">
+      <el-tab-pane label="上传文件" :name="0">
+        <div class="flex flex-col items-center">
+          <el-upload
+            ref="uploadRef"
+            v-model:file-list="fileList"
+            action=""
+            drag
+            :accept="accept"
+            :limit="props.limit"
+            :auto-upload="false"
+            :before-upload="handleBeforeUpdate"
+            :on-exceed="handleExceed"
+            :http-request="handleHttpRequest"
+          >
+            <el-icon class="el-icon--upload">
+              <ElIconUploadFilled />
+            </el-icon>
+            <div class="el-upload__text">
+              上传文件 <em>.txt .pdf .docx</em>
+            </div>
+          </el-upload>
+          <el-button type="primary" :disabled="loading" @click.stop="handleUpload">
+            上传文件
+          </el-button>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="网页抓取" :name="1">
+        网页抓取
+      </el-tab-pane>
+    </el-tabs>
+  </el-dialog>
 </template>
 
 <style scoped></style>
