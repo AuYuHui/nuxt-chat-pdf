@@ -14,7 +14,6 @@ async function fetchChatStream() {
     method: 'POST',
     signal: controller.signal,
     body: JSON.stringify({
-      collection: 'my_collection2',
       prompt: prompt.value,
       messages: currentChatHistory.value?.context || [],
     }),

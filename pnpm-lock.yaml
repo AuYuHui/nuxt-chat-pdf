@@ -8,9 +8,6 @@ dependencies:
   '@element-plus/icons-vue':
     specifier: ^2.1.0
     version: registry.npmmirror.com/@element-plus/icons-vue@2.1.0
-  '@microsoft/fetch-event-source':
-    specifier: ^2.0.1
-    version: registry.npmmirror.com/@microsoft/fetch-event-source@2.0.1
   '@pureadmin/utils':
     specifier: ^1.9.6
     version: registry.npmmirror.com/@pureadmin/utils@1.9.6
@@ -1559,12 +1556,6 @@ packages:
       - encoding
       - supports-color
     dev: true
-
-  registry.npmmirror.com/@microsoft/fetch-event-source@2.0.1:
-    resolution: {integrity: sha512-W6CLUJ2eBMw3Rec70qrsEW0jOm/3twwJv21mrmj2yORiaVmVYGS4sSS5yUwvQc1ZlDLYGPnClVWmUUMagKNsfA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@microsoft/fetch-event-source/-/fetch-event-source-2.0.1.tgz}
-    name: '@microsoft/fetch-event-source'
-    version: 2.0.1
-    dev: false
 
   registry.npmmirror.com/@netlify/functions@1.6.0:
     resolution: {integrity: sha512-6G92AlcpFrQG72XU8YH8pg94eDnq7+Q0YJhb8x4qNpdGsvuzvrfHWBmqFGp/Yshmv4wex9lpsTRZOocdrA2erQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@netlify/functions/-/functions-1.6.0.tgz}

@@ -9,10 +9,9 @@ import { makeChain } from '~/utils/makechain'
 export const runtime = 'edge'
 
 export default defineEventHandler(async (event) => {
-  const { prompt, messages, collection } = await readBody<{
+  const { prompt, messages } = await readBody<{
     prompt: string
     messages: Message[]
-    collection: string
   }>(event)
 
   const { stream, handlers } = LangChainStream()
@@ -28,9 +27,6 @@ export default defineEventHandler(async (event) => {
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = prompt.trim().replaceAll('\n', ' ')
   try {
-    if (!collection)
-      throw new Error('Chroma collection name is missing')
-
     /* create vectorstore */
     const vectorStore = await Chroma.fromExistingCollection(
       new OpenAIEmbeddings(
@@ -42,7 +38,7 @@ export default defineEventHandler(async (event) => {
         },
       ),
       {
-        collectionName: collection,
+        collectionName: process.env.CHROMA_COLLECTION_NAME || 'my_collection',
       },
     )
 
