@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { Message } from 'ai'
+
 export interface Props {
-  context: Array<Chat.ChatData>
+  context: Message[]
 }
 
 withDefaults(defineProps<Props>(), {

@@ -23,10 +23,13 @@
     "@microsoft/fetch-event-source": "^2.0.1",
     "@pureadmin/utils": "^1.9.6",
     "@vueuse/components": "^10.2.1",
+    "ai": "^2.1.9",
     "chromadb": "^1.5.3",
     "element-plus": "^2.3.7",
     "h3-formidable": "^0.3.6",
-    "pdf-parse": "^1.1.1"
+    "langchain": "^0.0.102",
+    "pdf-parse": "^1.1.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.6",
@@ -35,13 +38,13 @@
     "@nuxt/devtools": "^0.6.6",
     "@nuxtjs/color-mode": "^3.3.0",
     "@pinia/nuxt": "^0.4.11",
+    "@types/uuid": "^9.0.2",
     "@unocss/nuxt": "^0.53.4",
     "@vueuse/nuxt": "^10.2.1",
     "commitizen": "^4.3.0",
     "consola": "^3.2.2",
     "cz-git": "^1.6.1",
     "eslint": "^8.44.0",
-    "langchain": "^0.0.96",
     "nuxt": "^3.6.1",
     "sass": "^1.63.6",
     "typescript": "^5.1.6"

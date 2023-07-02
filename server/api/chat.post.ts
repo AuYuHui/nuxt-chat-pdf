@@ -1,26 +1,34 @@
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
-import type { BaseChatMessage } from 'langchain/schema'
-import { ChatMessageHistory } from 'langchain/memory'
+import { AIChatMessage, HumanChatMessage } from 'langchain/schema'
 import { Chroma } from 'langchain/vectorstores/chroma'
+import { CallbackManager } from 'langchain/callbacks'
+import type { Message } from 'ai'
+import { LangChainStream, streamToResponse } from 'ai'
 import { makeChain } from '~/utils/makechain'
 
+export const runtime = 'edge'
+
 export default defineEventHandler(async (event) => {
-  const { prompt, history, collectionName } = await readBody<{
+  const { prompt, messages, collection } = await readBody<{
     prompt: string
-    history: BaseChatMessage[]
-    collectionName: string
+    messages: Message[]
+    collection: string
   }>(event)
+
+  const { stream, handlers } = LangChainStream()
+
+  const openaiApiKey = process.env.OPENAI_API_KEY || ''
+
+  if (!openaiApiKey)
+    throw new Error('OPENAI_API_KEY is not set in the environment')
 
   if (!prompt)
     return setResponseStatus(event, 400, 'No question in the request')
 
-  console.log('question:', prompt)
-  console.log(history)
-
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = prompt.trim().replaceAll('\n', ' ')
   try {
-    if (!collectionName)
+    if (!collection)
       throw new Error('Chroma collection name is missing')
 
     /* create vectorstore */
@@ -34,26 +42,28 @@ export default defineEventHandler(async (event) => {
         },
       ),
       {
-        collectionName,
+        collectionName: collection,
       },
     )
 
     // create chain
     const chain = makeChain(vectorStore)
+
     // Ask a question using chat history
-    const response = await chain.call({
+    chain.call({
       question: sanitizedQuestion,
-      chat_history: new ChatMessageHistory(history),
+      chat_history: (messages).map(message =>
+        message.role === 'user'
+          ? new HumanChatMessage(message.content)
+          : new AIChatMessage(message.content),
+      ),
+    }, CallbackManager.fromHandlers(handlers)).catch((err) => {
+      console.error('err', err)
     })
 
-    console.log('response', response)
-    return {
-      msg: 'success',
-      data: response,
-    }
+    return streamToResponse(stream, event.node.res)
   }
   catch (error: any) {
-    console.log('error:', error)
     setResponseStatus(event, 500)
     send(event, { error: error.message || 'Something went wrong' })
   }

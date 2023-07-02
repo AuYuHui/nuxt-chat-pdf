@@ -21,7 +21,7 @@ export function makeChain(vectorstore: Chroma) {
   const model = new OpenAI(
     {
       openAIApiKey: process.env.OPENAI_API_KEY,
-      temperature: 0, // increase temepreature to get more creative answers
+      streaming: true,
       modelName: 'gpt-3.5-turbo-0613', // change this to gpt-4 if you have access
     },
     {

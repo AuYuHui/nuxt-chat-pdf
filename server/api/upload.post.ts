@@ -12,6 +12,8 @@ import { DocxLoader } from 'langchain/document_loaders/fs/docx'
 import type { BaseDocumentLoader } from 'langchain/document_loaders/base'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 
+export const runtime = 'edge'
+
 export default defineEventHandler(async (event) => {
   const {
     files: {
@@ -33,9 +35,8 @@ async function storeDocumentsInChroma(
   mimetype: string,
   collectionName: string,
 ) {
-  return new Promise(async (resolve, reject) => {
+  return new Promise<boolean>(async (resolve, reject) => {
     try {
-      const config = useRuntimeConfig()
       const embeddings = new OpenAIEmbeddings(
         {
           openAIApiKey: process.env.OPENAI_API_KEY,
@@ -44,7 +45,6 @@ async function storeDocumentsInChroma(
           basePath: process.env.OPENAI_PROXY_URL,
         },
       )
-      console.log('fileLoader')
 
       const loader = switchFileLoader(filepath, mimetype)
 
@@ -55,19 +55,15 @@ async function storeDocumentsInChroma(
         chunkOverlap: 200,
       })
       const docs = await textSplitter.splitDocuments(rawDocs)
-      console.log('create collection ')
 
       await Chroma.fromDocuments(docs, embeddings, {
         collectionName,
       })
-      console.log('升级成功')
 
       resolve(true)
     }
     catch (error) {
-      console.log('error', error)
-      reject(false)
-      throw new Error('Failed to ingest your data')
+      reject(new Error('Failed to ingest your data'))
     }
   })
 }

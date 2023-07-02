@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { storageLocal } from '@pureadmin/utils'
+import type { Message } from 'ai'
 
 const LOCAL_NAME = 'chat-history-store'
 
@@ -86,10 +87,21 @@ export const useChatStore = defineStore('chat', {
 		 * 更新当前激活的聊天记录
 		 * @param context 聊天记录
 		 */
-    updateHistoryContext(context: Chat.ChatData) {
+    addHistoryContext(context: Message) {
       const index = this.history.findIndex(item => item.uuid === this.active)
       if (index !== -1) {
         this.history[index].context.push(context)
+        this.recordState()
+      }
+    },
+    /**
+		 * 更新当前激活的聊天记录
+		 * @param context 聊天记录
+		 */
+    updateHistoryContext(currentIndex: number, context: string) {
+      const index = this.history.findIndex(item => item.uuid === this.active)
+      if (index !== -1) {
+        this.history[index].context[currentIndex].content = context
         this.recordState()
       }
     },

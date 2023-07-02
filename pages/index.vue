@@ -1,17 +1,46 @@
 <script setup lang="tsx">
-import type { BaseChatMessage, ChainValues } from 'langchain/schema'
-import { AIChatMessage, HumanChatMessage } from 'langchain/schema'
+import { v4 as uuidv4 } from 'uuid'
+import { createChunkDecoder } from '~/utils/utils'
 import { useChatStore } from '~/stores/chat'
 import { ClientOnly } from '#components'
 
 const chatStore = useChatStore()
-const currentChatHistory = computed(() => chatStore.getCurrentHistory)
-
 const prompt = ref('')
-const loading = ref(false)
-const collectionName = ref('')
+const currentChatHistory = computed(() => chatStore.getCurrentHistory)
+const controller = new AbortController()
+
+async function fetchChatStream() {
+  const res = await fetch('/api/chat', {
+    method: 'POST',
+    signal: controller.signal,
+    body: JSON.stringify({
+      collection: 'my_collection2',
+      prompt: prompt.value,
+      messages: currentChatHistory.value?.context || [],
+    }),
+  })
+  let result = ''
+  const reader = res.body!.getReader()
+  const decoder = createChunkDecoder()
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done)
+      break
+    result += decoder(value)
+    // 更新聊天信息
+    chatStore.updateHistoryContext(currentChatHistory.value!.context.length - 1, result)
+    if (controller === null) {
+      reader.cancel()
+      break
+    }
+  }
+}
+
 const isGoogle = ref(false)
-const history = ref<Array<BaseChatMessage>>([])
+
+function handleInputChange(val: string) {
+  prompt.value = val
+}
 /**
  * 渲染图标
  */
@@ -63,43 +92,17 @@ function RenderIcon() {
 function handleSend() {
   if (!prompt.value)
     return
-  chatStore.updateHistoryContext({
+  chatStore.addHistoryContext({
     content: prompt.value,
+    id: uuidv4(),
     role: 'user',
   })
-  prompt.value = ''
-}
-
-async function handleQuery() {
-  const ctrl = new AbortController()
-  const text = ''
-  try {
-    loading.value = true
-    history.value.push(new HumanChatMessage(prompt.value))
-
-    $fetch('/api/query', {
-      method: 'POST',
-      body: JSON.stringify({
-        prompt: prompt.value,
-        history: history.value,
-        collectionName: collectionName.value,
-      }),
-    }).then((res) => {
-      const { text } = res.data as ChainValues
-      history.value.push(new AIChatMessage(text))
-    })
-
-    loading.value = false
-    prompt.value = ''
-  }
-  catch (error) {
-    loading.value = false
-    prompt.value = ''
-  }
-}
-
-function handleSuccess(val: string) {
-  collectionName.value = val
+  fetchChatStream()
+  chatStore.addHistoryContext({
+    content: '',
+    id: uuidv4(),
+    role: 'assistant',
+  })
 }
 </script>
 
@@ -110,14 +113,18 @@ function handleSuccess(val: string) {
       <ChatMessage :context="currentChatHistory?.context" />
       <div class="border-t-1 bg-white py-[10px] px-[20px]">
         <el-input
-          v-model="prompt" :autosize="{ minRows: 3, maxRows: 10 }" type="textarea" placeholder="输入问题"
+          v-model="prompt"
+          :autosize="{ minRows: 3, maxRows: 10 }"
+          type="textarea"
+          placeholder="输入问题"
           resize="none"
+          @input="handleInputChange"
         />
         <div class="flex-cb pt-2">
           <div class="flex">
             <RenderIcon />
           </div>
-          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition" @click="handleSend">
+          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition" @click="handleSend()">
             发送
           </el-button>
         </div>
