@@ -22,18 +22,19 @@ export default defineEventHandler(async (event) => {
   } = await readFiles(event, {
     includeFields: true,
   })
-  await storeDocumentsInChroma(filepath, mimetype, newFilename)
+  const collection = `chat-${new Date().getSeconds()}${new Date().getMilliseconds()}-name`
+  await storeDocumentsInChroma(filepath, mimetype, collection)
   return {
     code: 0,
     msg: 'success',
-    collection: newFilename as string,
+    collection,
   }
 })
 
 async function storeDocumentsInChroma(
   filepath: string,
   mimetype: string,
-  collectionName: string,
+  collection: string,
 ) {
   return new Promise<boolean>(async (resolve, reject) => {
     try {
@@ -56,9 +57,21 @@ async function storeDocumentsInChroma(
       })
       const docs = await textSplitter.splitDocuments(rawDocs)
 
-      await Chroma.fromDocuments(docs, embeddings, {
-        collectionName,
-      })
+      /** The name must start and end with a lowercase letter or a digit, and it can contain dots, dashes, and underscores in between. */
+      const chroma = new Chroma(embeddings, { collectionName: collection })
+      await chroma.index?.reset()
+
+      for (let i = 0; i < docs.length; i += 100) {
+        const batch = docs.slice(i, i + 100)
+        try {
+          await Chroma.fromDocuments(batch, embeddings, {
+            collectionName: collection,
+          })
+        }
+        catch (error) {
+          console.log('fromDocumentserror', error)
+        }
+      }
 
       resolve(true)
     }

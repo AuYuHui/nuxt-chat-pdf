@@ -19,7 +19,6 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emit>()
 
 interface Emit {
-  (e: 'success', collection: string): void
   (e: 'update:visible', visible: boolean): void
 }
 
@@ -74,7 +73,6 @@ function handleHttpRequest() {
     })
       .then((res) => {
         ElMessage.success('上传成功')
-        emit('success', res.collection)
         resolve(true)
         loading.value = false
       })
@@ -118,7 +116,7 @@ function handleUpload() {
               上传文件 <em>.txt .pdf .docx</em>
             </div>
           </el-upload>
-          <el-button type="primary" :disabled="loading" @click.stop="handleUpload">
+          <el-button type="primary" :disabled="loading" :loading="loading" @click.stop="handleUpload">
             上传文件
           </el-button>
         </div>
