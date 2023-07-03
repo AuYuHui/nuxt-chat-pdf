@@ -34,6 +34,7 @@ const dialogVisible = computed({
 const activeName = ref(0)
 const uploadRef = ref<UploadInstance>()
 const fileList = ref<UploadUserFile[]>([])
+const url = ref('')
 const loading = ref(false)
 const handleBeforeUpdate: UploadProps['beforeUpload'] = (rawFile) => {
   // 判断 文件类型是否是约束中的一种
@@ -86,6 +87,20 @@ function handleHttpRequest() {
 function handleUpload() {
   uploadRef.value!.submit()
 }
+
+/***
+ * 抓取网页
+ */
+
+async function handleWebPage() {
+  const res = $fetch('/api/web_page', {
+    method: 'POST',
+    body: JSON.stringify({
+      url: url.value,
+    }),
+  })
+  console.log(res)
+}
 </script>
 
 <template>
@@ -122,7 +137,14 @@ function handleUpload() {
         </div>
       </el-tab-pane>
       <el-tab-pane label="网页抓取" :name="1">
-        网页抓取
+        <el-input
+          v-model="url"
+          placeholder="e.g.: https://en.wikipedia.org/wiki/Nuclear_fusion"
+          type="text"
+        />
+        <el-button class="mt-1" type="primary" :disabled="loading" :loading="loading" @click.stop="handleWebPage">
+          抓取网页
+        </el-button>
       </el-tab-pane>
     </el-tabs>
   </el-dialog>
