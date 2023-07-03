@@ -22,12 +22,13 @@
     "@pureadmin/utils": "^1.9.6",
     "@vueuse/components": "^10.2.1",
     "ai": "^2.1.13",
+    "axios": "^1.4.0",
     "chromadb": "^1.5.3",
     "element-plus": "^2.3.7",
     "h3-formidable": "^0.3.6",
+    "jsdom": "^22.1.0",
     "langchain": "^0.0.102",
     "pdf-parse": "^1.1.1",
-    "playwright": "^1.35.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@nuxt/devtools": "^0.6.6",
     "@nuxtjs/color-mode": "^3.3.0",
     "@pinia/nuxt": "^0.4.11",
+    "@types/jsdom": "^21.1.1",
     "@types/uuid": "^9.0.2",
     "@unocss/nuxt": "^0.53.4",
     "@vueuse/nuxt": "^10.2.1",

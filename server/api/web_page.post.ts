@@ -1,32 +1,18 @@
-import type { Browser, Page } from 'langchain/document_loaders/web/playwright'
-import { PlaywrightWebBaseLoader } from 'langchain/document_loaders/web/playwright'
-import addSlashUrl from '~/utils/add-slash-url'
+import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
+import { WebPageLoader } from '~/utils/loaders/web-page'
 
 export default defineEventHandler(async (event) => {
   const { url } = await readBody<{ url: string }>(event)
-  const urlWithSlash = addSlashUrl(url.trim())
+  const web_page = new WebPageLoader()
 
-  const loader = new PlaywrightWebBaseLoader(urlWithSlash, {
-    launchOptions: {
-      headless: true,
-    },
-    gotoOptions: {
-      waitUntil: 'domcontentloaded',
-      timeout: 100000,
-    },
-    /** Pass custom evaluate, in this case you get page and browser instances */
-    async evaluate(page: Page, browser: Browser) {
-      await page.waitForResponse(urlWithSlash)
-
-      const result = await page.evaluate(() => document.body.innerHTML)
-      console.log('result', result)
-
-      return result
-    },
+  const content = await web_page.load_data(url.trim())
+  const textSplitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 500,
+    chunkOverlap: 0,
+    keepSeparator: false,
   })
 
-  const docs = await loader.load()
-  // console.log('docs', docs)
+  console.log('content', content)
 
   return 'Hello webpage'
 })
