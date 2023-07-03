@@ -37,9 +37,6 @@ async function fetchChatStream() {
 
 const isGoogle = ref(false)
 
-function handleInputChange(val: string) {
-  prompt.value = val
-}
 /**
  * 渲染图标
  */
@@ -102,6 +99,7 @@ function handleSend() {
     id: uuidv4(),
     role: 'assistant',
   })
+  prompt.value = ''
 }
 </script>
 
@@ -117,7 +115,6 @@ function handleSend() {
           type="textarea"
           placeholder="输入问题"
           resize="none"
-          @input="handleInputChange"
         />
         <div class="flex-cb pt-2">
           <div class="flex">

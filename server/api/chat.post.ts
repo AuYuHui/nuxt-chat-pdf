@@ -1,5 +1,6 @@
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { AIChatMessage, HumanChatMessage } from 'langchain/schema'
+import { ChatMessageHistory } from 'langchain/memory'
 import { Chroma } from 'langchain/vectorstores/chroma'
 import { CallbackManager } from 'langchain/callbacks'
 import type { Message } from 'ai'
@@ -13,7 +14,6 @@ export default defineEventHandler(async (event) => {
     prompt: string
     messages: Message[]
   }>(event)
-
   const { stream, handlers } = LangChainStream()
 
   const openaiApiKey = process.env.OPENAI_API_KEY || ''
@@ -44,15 +44,15 @@ export default defineEventHandler(async (event) => {
 
     // create chain
     const chain = makeChain(vectorStore)
-
+    const history = (messages).map(message =>
+      message.role === 'user'
+        ? new HumanChatMessage(message.content)
+        : new AIChatMessage(message.content))
     // Ask a question using chat history
+
     chain.call({
       question: sanitizedQuestion,
-      chat_history: (messages).map(message =>
-        message.role === 'user'
-          ? new HumanChatMessage(message.content)
-          : new AIChatMessage(message.content),
-      ),
+      chat_history: new ChatMessageHistory(history) || [],
     }, CallbackManager.fromHandlers(handlers)).catch((err) => {
       console.error('err', err)
     })
