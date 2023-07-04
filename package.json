@@ -21,7 +21,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@pureadmin/utils": "^1.9.6",
     "@vueuse/components": "^10.2.1",
-    "ai": "^2.1.13",
+    "ai": "^2.1.14",
     "axios": "^1.4.0",
     "chromadb": "^1.5.3",
     "element-plus": "^2.3.7",

@@ -15,8 +15,8 @@ dependencies:
     specifier: ^10.2.1
     version: 10.2.1
   ai:
-    specifier: ^2.1.13
-    version: 2.1.13(react@18.2.0)(svelte@3.59.2)
+    specifier: ^2.1.14
+    version: 2.1.14(react@18.2.0)(svelte@3.59.2)
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -2645,8 +2645,8 @@ packages:
       indent-string: 4.0.0
     dev: true
 
-  /ai@2.1.13(react@18.2.0)(svelte@3.59.2):
-    resolution: {integrity: sha512-huPgaFymrTIQcF/S5t02ohTXCtUrMVbPrLcxEB2hc7oKYM8dajfd0y6iOIIuI1S+d+JFbs3CrkeUX30VRot4/Q==}
+  /ai@2.1.14(react@18.2.0)(svelte@3.59.2):
+    resolution: {integrity: sha512-P9jPlHqZZlXJ9Tva6FSqyJvWi0lVKenEpoxGvenkQH3QfT9qKpPj4sEF71mmrRgXrKQiMjhFcxpI22bvhskT/A==}
     engines: {node: '>=14.6'}
     peerDependencies:
       react: ^18.2.0
@@ -4241,7 +4241,7 @@ packages:
     dependencies:
       debug: 3.2.7
       is-core-module: 2.12.1
-      resolve: 1.22.2
+      resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
     dev: true
