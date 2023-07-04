@@ -27,6 +27,8 @@ export default defineConfig({
       collections: {
         'icon-park-outline': () =>
           import('@iconify-json/icon-park-outline/icons.json').then(i => i.default),
+        'svg-spinners': () =>
+          import('@iconify-json/svg-spinners/icons.json').then(i => i.default),
       },
     }),
     presetTypography(),

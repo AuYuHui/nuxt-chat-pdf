@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import type { Message } from 'ai'
-
 export interface Props {
-  context: Message[]
+  context: Chat.Context[]
 }
 
 withDefaults(defineProps<Props>(), {
@@ -19,7 +17,8 @@ withDefaults(defineProps<Props>(), {
         class="bubble"
         :class="[item.role === 'user' ? 'justify-end' : 'justify-start']"
       >
-        <div :class="[item.role === 'user' ? 'bubble-user break-words' : 'bubble-ai']">
+        <div :class="[item.role === 'user' ? 'bubble-user' : 'bubble-ai']">
+          <span v-if="item.role !== 'user' && item.loading" class="i-svg-spinners:3-dots-bounce w-6 h-6" />
           {{ item.content }}
         </div>
       </div>

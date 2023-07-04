@@ -27,7 +27,10 @@ async function fetchChatStream() {
       break
     result += decoder(value)
     // 更新聊天信息
-    chatStore.updateHistoryContext(currentChatHistory.value!.context.length - 1, result)
+    chatStore.updateHistoryContext(currentChatHistory.value!.context.length - 1, {
+      content: result,
+      loading: false,
+    })
     if (controller === null) {
       reader.cancel()
       break
@@ -98,6 +101,7 @@ function handleSend() {
     content: '',
     id: uuidv4(),
     role: 'assistant',
+    loading: true,
   })
   prompt.value = ''
 }
