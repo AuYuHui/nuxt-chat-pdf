@@ -15,7 +15,7 @@ const controller = new AbortController()
  * 获取对话流式数据
  */
 async function fetchChatStream() {
-  const res = await fetch('/api/chat_age', {
+  const res = await fetch('/api/chat_agent', {
     method: 'POST',
     signal: controller.signal,
     body: JSON.stringify({
