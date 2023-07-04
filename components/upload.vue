@@ -93,13 +93,25 @@ function handleUpload() {
  */
 
 async function handleWebPage() {
-  const res = $fetch('/api/web_page', {
-    method: 'POST',
-    body: JSON.stringify({
-      url: url.value,
-    }),
-  })
-  console.log(res)
+  loading.value = true
+  try {
+    const res = await $fetch('/api/web_page', {
+      method: 'POST',
+      body: JSON.stringify({
+        url: url.value,
+      }),
+    })
+    ElMessage.success('抓取成功')
+    console.log(res)
+    loading.value = false
+  }
+  catch (error) {
+    ElMessage.error('抓取失败')
+    loading.value = false
+  }
+  finally {
+    loading.value = false
+  }
 }
 </script>
 

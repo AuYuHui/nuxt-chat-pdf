@@ -25,12 +25,11 @@ export default defineEventHandler(async (event) => {
     keepSeparator: false,
   })
   const collectionName = ensureCollectionName()
+  const chroma = new Chroma(embeddings, { collectionName })
+  await chroma.index?.reset()
   for (const data of datas) {
     const rawDocs = new Document(data)
-
     const docs = await textSplitter.splitDocuments([rawDocs])
-    const chroma = new Chroma(embeddings, { collectionName })
-    await chroma.index?.reset()
 
     for (let i = 0; i < docs.length; i += 100) {
       const batch = docs.slice(i, i + 100)
@@ -40,7 +39,7 @@ export default defineEventHandler(async (event) => {
         })
       }
       catch (error) {
-        console.log('fromDocumentserror', error)
+        throw new Error('Failed fromDocumentserror')
       }
     }
   }
