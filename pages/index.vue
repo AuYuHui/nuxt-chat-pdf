@@ -6,9 +6,14 @@ import { ClientOnly } from '#components'
 
 const chatStore = useChatStore()
 const prompt = ref('')
+const isGoogle = ref(false)
+
 const currentChatHistory = computed(() => chatStore.getCurrentHistory)
 const controller = new AbortController()
 
+/**
+ * 获取对话流式数据
+ */
 async function fetchChatStream() {
   const res = await fetch('/api/chat', {
     method: 'POST',
@@ -16,6 +21,7 @@ async function fetchChatStream() {
     body: JSON.stringify({
       prompt: prompt.value,
       messages: currentChatHistory.value?.context || [],
+      isGoogle: isGoogle.value,
     }),
   })
   let result = ''
@@ -37,8 +43,6 @@ async function fetchChatStream() {
     }
   }
 }
-
-const isGoogle = ref(false)
 
 /**
  * 渲染图标

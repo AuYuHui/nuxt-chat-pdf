@@ -39,5 +39,8 @@ export function makeChain(vectorstore: Chroma) {
       returnSourceDocuments: true, // The number of source documents returned is 4 by default
     },
   )
-  return chain
+  return {
+    chain,
+    model,
+  }
 }
