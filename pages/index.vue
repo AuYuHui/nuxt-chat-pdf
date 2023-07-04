@@ -15,7 +15,7 @@ const controller = new AbortController()
  * 获取对话流式数据
  */
 async function fetchChatStream() {
-  const res = await fetch('/api/chat', {
+  const res = await fetch('/api/chat_age', {
     method: 'POST',
     signal: controller.signal,
     body: JSON.stringify({
@@ -65,21 +65,21 @@ function RenderClearIcon() {
 /**
  * 渲染图标
  */
-function RenderGoogleIcon() {
-  return (
-		<ClientOnly>
-			<el-tooltip
-				effect="dark"
-				content="启用Google搜索,增强AI回答实时性"
-				placement="top-start"
-			>
-				<button class={['w-8 h-8 rounded-1 flex-c', isGoogle.value ? 'bg-[#f1f5f9]' : 'hover:bg-[#f1f5f9]']} onClick={() => isGoogle.value = !isGoogle.value}>
-					<i class={['i-icon-park-outline:google w-4', { 'text-[#DD4B39]': isGoogle.value }] }></i>
-				</button>
-			</el-tooltip>
-		</ClientOnly>
-  )
-}
+// function RenderGoogleIcon() {
+//   return (
+// 		<ClientOnly>
+// 			<el-tooltip
+// 				effect="dark"
+// 				content="启用Google搜索,增强AI回答实时性"
+// 				placement="top-start"
+// 			>
+// 				<button class={['w-8 h-8 rounded-1 flex-c', isGoogle.value ? 'bg-[#f1f5f9]' : 'hover:bg-[#f1f5f9]']} onClick={() => isGoogle.value = !isGoogle.value}>
+// 					<i class={['i-icon-park-outline:google w-4', { 'text-[#DD4B39]': isGoogle.value }] }></i>
+// 				</button>
+// 			</el-tooltip>
+// 		</ClientOnly>
+//   )
+// }
 /**
  * 渲染图标
  */
@@ -87,7 +87,6 @@ function RenderIcon() {
   return (
 		<>
 			<RenderClearIcon />
-			<RenderGoogleIcon />
 		</>
   )
 }
