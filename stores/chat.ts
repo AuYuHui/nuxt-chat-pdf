@@ -104,6 +104,16 @@ export const useChatStore = defineStore('chat', {
         this.recordState()
       }
     },
+    /**
+		 * 清理当前激活的聊天记录
+		 */
+    clearHistoryContext() {
+      const index = this.history.findIndex(item => item.uuid === this.active)
+      if (index !== -1) {
+        this.history[index].context = []
+        this.recordState()
+      }
+    },
 
     /**
 	 *

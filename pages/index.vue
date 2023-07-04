@@ -44,6 +44,24 @@ async function fetchChatStream() {
   }
 }
 
+/** 清理对话上下文 */
+function handleClear() {
+  ElMessageBox.confirm(
+    '是否确定清理对话上下文?',
+    '清理对话',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    },
+  )
+    .then(() => {
+      chatStore.clearHistoryContext()
+    })
+    .catch(() => {
+    })
+}
+
 /**
  * 渲染图标
  */
@@ -55,7 +73,7 @@ function RenderClearIcon() {
 				content="清理对话上下文"
 				placement="top-start"
 			>
-				<button class="hover:bg-[#f1f5f9] w-8 h-8 rounded-1">
+				<button class="hover:bg-[#f1f5f9] w-8 h-8 rounded-1" onClick={handleClear}>
 					<i class="i-icon-park-outline:clear w-4"></i>
 				</button>
 			</el-tooltip>
