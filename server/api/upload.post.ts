@@ -11,23 +11,24 @@ import { CSVLoader } from 'langchain/document_loaders/fs/csv'
 import { DocxLoader } from 'langchain/document_loaders/fs/docx'
 import type { BaseDocumentLoader } from 'langchain/document_loaders/base'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
+import { ensureCollectionName } from '~/utils/utils'
 
 export const runtime = 'edge'
 
 export default defineEventHandler(async (event) => {
   const {
     files: {
-      document: [{ filepath, mimetype, newFilename }],
+      document: [{ filepath, mimetype }],
     },
   } = await readFiles(event, {
     includeFields: true,
   })
-  const collection = `chat-${new Date().getSeconds()}${new Date().getMilliseconds()}-name`
-  await storeDocumentsInChroma(filepath, mimetype, collection)
+  const collectionName = ensureCollectionName()
+  await storeDocumentsInChroma(filepath, mimetype, collectionName)
   return {
     code: 0,
     msg: 'success',
-    collection,
+    collection: collectionName,
   }
 })
 

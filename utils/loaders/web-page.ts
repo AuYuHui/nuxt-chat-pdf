@@ -29,16 +29,18 @@ export class WebPageLoader {
 
     const output = []
     let content = document.body.textContent
-    if (content)
+    if (content) {
       content = clean_string(content)
 
-    const meta_data = {
-      source: url,
+      const meta_data = {
+        source: url,
+      }
+      output.push({
+        pageContent: content,
+        metadata: meta_data,
+      })
     }
-    output.push({
-      pageContent: content,
-      metadata: meta_data,
-    })
+
     return output
   }
 }

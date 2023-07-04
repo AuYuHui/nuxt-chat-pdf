@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export function createChunkDecoder() {
   const decoder = new TextDecoder()
   return function (chunk: Uint8Array | undefined): string {
@@ -5,6 +7,13 @@ export function createChunkDecoder() {
       return ''
     return decoder.decode(chunk, { stream: true })
   }
+}
+
+export function ensureCollectionName(collectionName?: string) {
+  if (!collectionName)
+    return `langchain-${uuidv4()}`
+
+  return collectionName
 }
 
 export function clean_string(text: string) {
