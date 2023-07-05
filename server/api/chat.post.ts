@@ -11,10 +11,11 @@ import { makeChain } from '~/utils/makechain'
 export const runtime = 'edge'
 
 export default defineEventHandler(async (event) => {
-  const { prompt, messages, isGoogle } = await readBody<{
+  const { prompt, messages, isGoogle, APIKey } = await readBody<{
     prompt: string
     messages: Message[]
     isGoogle?: boolean
+    APIKey?: string
   }>(event)
   const { stream, handlers } = LangChainStream()
 
@@ -22,7 +23,7 @@ export default defineEventHandler(async (event) => {
 
   const openaiApiKey = OPENAI_API_KEY || ''
 
-  if (!openaiApiKey)
+  if (!openaiApiKey && !APIKey)
     throw new Error('OPENAI_API_KEY is not set in the environment')
 
   if (!prompt)
@@ -35,7 +36,7 @@ export default defineEventHandler(async (event) => {
     const vectorStore = await Chroma.fromExistingCollection(
       new OpenAIEmbeddings(
         {
-          openAIApiKey: OPENAI_API_KEY,
+          openAIApiKey: APIKey || OPENAI_API_KEY,
         },
         {
           basePath: OPENAI_PROXY_URL,

@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import Setting from './setting.vue'
 
+const visible = ref(false)
 </script>
 
 <template>
@@ -8,9 +10,12 @@
       Nuxt-Chat
     </div>
     <div>
-      <el-avatar :size="30" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
+      <el-icon :size="24" class="cursor-pointer" @click="visible = !visible">
+        <el-icon-setting />
+      </el-icon>
     </div>
   </div>
+  <Setting v-model:visible="visible" />
 </template>
 
 <style scoped>
