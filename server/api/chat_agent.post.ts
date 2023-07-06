@@ -6,19 +6,13 @@ import { LLMChain } from 'langchain/chains'
 
 export default defineEventHandler(async (event) => {
   const { prompt: input } = await readBody<{ prompt: string }>(event)
-  const { SerpAPI_KEY }
-		= process.env
+  const { SerpAPI_KEY, OPENAI_PROXY_URL } = process.env
   const model = new OpenAI({
     temperature: 0.9,
-    callbacks: [
-      {
-        handleLLMNewToken(token, idx, runId, parentRunId) {
-          console.log('new token', token, idx, runId, parentRunId)
-        },
-      },
-    ],
+    streaming: true,
+    modelName: 'gpt-3.5-turbo-0613',
   }, {
-    basePath: process.env.OPENAI_PROXY_URL,
+    basePath: OPENAI_PROXY_URL,
   })
   const tools = [
     new SerpAPI(SerpAPI_KEY, {
@@ -29,7 +23,7 @@ export default defineEventHandler(async (event) => {
     new Calculator(),
   ]
   const prefix = 'Answer the following questions as best you can. And answer according to the language of the user\'s question. You have access to the following tools:\n\nsearch: a search engine. useful for when you need to answer questions about current events. input should be a search query.\ncalculator:'
-  const suffix = `Begin! And answer according to the language of the user's question."
+  const suffix = `Begin! And answer according to the language of the user\'s question."
 
 Question: {input}
 {agent_scratchpad}`

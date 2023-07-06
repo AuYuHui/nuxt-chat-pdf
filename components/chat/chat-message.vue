@@ -8,12 +8,9 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   context: () => [],
 })
+
 const innerRef = ref<HTMLDivElement>()
 const scrollbarRef = ref<InstanceType<typeof ElScrollbar>>()
-
-onMounted(() => {
-  nextTick(() => scrollToBottom())
-})
 
 watch(() => props.context, () => {
   nextTick(() => scrollToBottom())
@@ -26,6 +23,10 @@ function scrollToBottom() {
     scrollbarRef.value!.setScrollTop(scrollHeight)
   }
 }
+
+onMounted(() => {
+  nextTick(() => scrollToBottom())
+})
 </script>
 
 <template>
@@ -35,6 +36,7 @@ function scrollToBottom() {
         <div
           v-for="item in context"
           :key="item.id"
+
           class="bubble markdown-body"
           :class="[item.role === 'user' ? 'justify-end' : 'justify-start']"
         >
