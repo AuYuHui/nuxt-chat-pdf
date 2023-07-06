@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   },
 
   // css
-  css: ['@unocss/reset/tailwind.css', '~/assets/scss/index.scss'],
+  css: ['@unocss/reset/tailwind.css', '~/assets/scss/lib/index.scss', '~/assets/scss/index.scss'],
 
   // build modules
   modules: [

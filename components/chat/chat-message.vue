@@ -20,7 +20,6 @@ watch(() => props.context, () => {
 }, {
   deep: true,
 })
-
 function scrollToBottom() {
   if (innerRef.value) {
     const scrollHeight = innerRef.value.scrollHeight
@@ -41,7 +40,7 @@ function scrollToBottom() {
         >
           <div :class="[item.role === 'user' ? 'bubble-user' : 'bubble-ai']">
             <span v-if="item.role !== 'user' && item.loading" class="i-svg-spinners:3-dots-bounce w-6 h-6" />
-            {{ item.content }}
+            <div v-html="md.render(item.content)" />
           </div>
         </div>
       </div>

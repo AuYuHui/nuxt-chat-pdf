@@ -2,11 +2,9 @@
 import { v4 as uuidv4 } from 'uuid'
 import { createChunkDecoder } from '~/utils/utils'
 import { useChatStore } from '~/stores/chat'
-import { useAppStore } from '~/stores/app'
 import { ClientOnly } from '#components'
 
 const chatStore = useChatStore()
-const appStore = useAppStore()
 
 const prompt = ref('')
 const isGoogle = ref(false)
@@ -25,7 +23,6 @@ async function fetchChatStream() {
       prompt: prompt.value,
       messages: currentChatHistory.value?.context || [],
       isGoogle: isGoogle.value,
-      APIKey: computed(() => appStore.APIKey).value,
     }),
   })
   let result = ''
@@ -121,7 +118,7 @@ function handleSend() {
     id: uuidv4(),
     role: 'user',
   })
-  // fetchChatStream()
+  fetchChatStream()
   chatStore.addHistoryContext({
     content: '',
     id: uuidv4(),
