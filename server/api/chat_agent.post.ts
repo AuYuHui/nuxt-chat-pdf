@@ -3,7 +3,6 @@ import { AgentExecutor, ZeroShotAgent } from 'langchain/agents'
 import { Calculator } from 'langchain/tools/calculator'
 import { OpenAI } from 'langchain/llms/openai'
 import { LLMChain } from 'langchain/chains'
-import { LangChainStream } from 'ai'
 
 export default defineEventHandler(async (event) => {
   const { prompt: input } = await readBody<{ prompt: string }>(event)
@@ -21,7 +20,6 @@ export default defineEventHandler(async (event) => {
   }, {
     basePath: process.env.OPENAI_PROXY_URL,
   })
-  const { stream, handlers } = LangChainStream()
   const tools = [
     new SerpAPI(SerpAPI_KEY, {
       location: 'China',
@@ -46,7 +44,6 @@ Question: {input}
     const agent = new ZeroShotAgent({
       llmChain,
       allowedTools: ['search', 'calculator'],
-
     })
     const agentExecutor = AgentExecutor.fromAgentAndTools({ agent, tools })
     console.log('Loaded agent.')

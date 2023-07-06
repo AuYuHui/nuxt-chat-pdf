@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
     isGoogle?: boolean
     APIKey?: string
   }>(event)
+
   const { stream, handlers } = LangChainStream()
 
   const { OPENAI_API_KEY, OPENAI_PROXY_URL, CHROMA_COLLECTION_NAME } = process.env
