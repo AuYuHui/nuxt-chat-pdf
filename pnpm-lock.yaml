@@ -11,6 +11,9 @@ dependencies:
   '@pureadmin/utils':
     specifier: ^1.9.6
     version: 1.9.6
+  '@traptitech/markdown-it-katex':
+    specifier: ^3.6.0
+    version: 3.6.0
   '@vueuse/components':
     specifier: ^10.2.1
     version: 10.2.1
@@ -76,6 +79,9 @@ devDependencies:
   '@types/markdown-it':
     specifier: ^12.2.3
     version: 12.2.3
+  '@types/markdown-it-link-attributes':
+    specifier: ^3.0.1
+    version: 3.0.1
   '@types/uuid':
     specifier: ^9.0.2
     version: 9.0.2
@@ -97,6 +103,9 @@ devDependencies:
   eslint:
     specifier: ^8.44.0
     version: 8.44.0
+  markdown-it-link-attributes:
+    specifier: ^4.0.1
+    version: 4.0.1
   nuxt:
     specifier: ^3.6.1
     version: 3.6.1(@types/node@20.3.3)(eslint@8.44.0)(sass@1.63.6)(typescript@5.1.6)
@@ -1806,6 +1815,12 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
 
+  /@traptitech/markdown-it-katex@3.6.0:
+    resolution: {integrity: sha512-CnJzTWxsgLGXFdSrWRaGz7GZ1kUUi8g3E9HzJmeveX1YwVJavrKYqysktfHZQsujdnRqV5O7g8FPKEA/aeTkOQ==}
+    dependencies:
+      katex: 0.16.8
+    dev: false
+
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1877,6 +1892,12 @@ packages:
 
   /@types/lodash@4.14.195:
     resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
+
+  /@types/markdown-it-link-attributes@3.0.1:
+    resolution: {integrity: sha512-K8RnNb1q8j7rDOJbMF7AnlhCC/45BjrQ8z3WZWOrvkBIl8u9RXvmBdG/hfpnmK1JhhEZcmFEKWt+ilW1Mly+2Q==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
+    dev: true
 
   /@types/markdown-it@12.2.3:
     resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
@@ -3417,7 +3438,6 @@ packages:
   /commander@8.3.0:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
-    dev: true
 
   /commitizen@4.3.0:
     resolution: {integrity: sha512-H0iNtClNEhT0fotHvGV3E9tDejDeS04sN1veIebsKYGMuGscFaswRoYJKmT3eW85eIJAs0F28bG2+a/9wCOfPw==}
@@ -6114,6 +6134,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /katex@0.16.8:
+    resolution: {integrity: sha512-ftuDnJbcbOckGY11OO+zg3OofESlbR5DRl2cmN8HeWeeFIV7wTXvAOx8kEjZjobhA+9wh2fbKeO6cdcA9Mnovg==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
   /kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -6605,6 +6632,10 @@ packages:
       ssri: 10.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /markdown-it-link-attributes@4.0.1:
+    resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
     dev: true
 
   /markdown-it@13.0.1:

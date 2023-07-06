@@ -35,7 +35,7 @@ function scrollToBottom() {
         <div
           v-for="item in context"
           :key="item.id"
-          class="bubble"
+          class="bubble markdown-body"
           :class="[item.role === 'user' ? 'justify-end' : 'justify-start']"
         >
           <div :class="[item.role === 'user' ? 'bubble-user' : 'bubble-ai']">
@@ -48,7 +48,8 @@ function scrollToBottom() {
   </div>
 </template>
 
-<style scoped>
+<style  lang="scss">
+@import "./style.scss";
 .bubble {
 	display: flex;
 	box-sizing: border-box;
