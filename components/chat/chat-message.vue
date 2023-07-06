@@ -1,28 +1,51 @@
 <script setup lang="ts">
+import { ElScrollbar } from 'element-plus'
+
 export interface Props {
   context: Chat.Context[]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   context: () => [],
 })
+const innerRef = ref<HTMLDivElement>()
+const scrollbarRef = ref<InstanceType<typeof ElScrollbar>>()
+
+onMounted(() => {
+  nextTick(() => scrollToBottom())
+})
+
+watch(() => props.context, () => {
+  nextTick(() => scrollToBottom())
+}, {
+  deep: true,
+})
+
+function scrollToBottom() {
+  if (innerRef.value) {
+    const scrollHeight = innerRef.value.scrollHeight
+    scrollbarRef.value!.setScrollTop(scrollHeight)
+  }
+}
 </script>
 
 <template>
   <div class="flex-grow bg-white overflow-hidden">
-    <el-scrollbar class="p-3">
-      <div
-        v-for="(item, index) in context"
-        :key="index"
-        class="bubble"
-        :class="[item.role === 'user' ? 'justify-end' : 'justify-start']"
-      >
-        <div :class="[item.role === 'user' ? 'bubble-user' : 'bubble-ai']">
-          <span v-if="item.role !== 'user' && item.loading" class="i-svg-spinners:3-dots-bounce w-6 h-6" />
-          {{ item.content }}
+    <ElScrollbar ref="scrollbarRef" class="p-3">
+      <div ref="innerRef">
+        <div
+          v-for="item in context"
+          :key="item.id"
+          class="bubble"
+          :class="[item.role === 'user' ? 'justify-end' : 'justify-start']"
+        >
+          <div :class="[item.role === 'user' ? 'bubble-user' : 'bubble-ai']">
+            <span v-if="item.role !== 'user' && item.loading" class="i-svg-spinners:3-dots-bounce w-6 h-6" />
+            {{ item.content }}
+          </div>
         </div>
       </div>
-    </el-scrollbar>
+    </ElScrollbar>
   </div>
 </template>
 

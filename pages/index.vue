@@ -121,7 +121,7 @@ function handleSend() {
     id: uuidv4(),
     role: 'user',
   })
-  fetchChatStream()
+  // fetchChatStream()
   chatStore.addHistoryContext({
     content: '',
     id: uuidv4(),
@@ -144,12 +144,13 @@ function handleSend() {
           type="textarea"
           placeholder="输入问题"
           resize="none"
+          @keyup.enter.stop="handleSend"
         />
         <div class="flex-cb pt-2">
           <div class="flex">
             <RenderIcon />
           </div>
-          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition" @click="handleSend()">
+          <el-button type="primary" :disabled="!prompt" :icon="ElIconPosition" @click="handleSend">
             发送
           </el-button>
         </div>
