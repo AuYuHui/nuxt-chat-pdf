@@ -9,18 +9,24 @@ import { LangChainStream, streamToResponse } from 'ai'
 import { makeChain } from '~/utils/makechain'
 
 export const runtime = 'edge'
+const { OPENAI_API_KEY, OPENAI_PROXY_URL, CHROMA_COLLECTION_NAME } = process.env
 
+const embeddings = new OpenAIEmbeddings(
+  {
+    openAIApiKey: OPENAI_API_KEY,
+  },
+  {
+    basePath: OPENAI_PROXY_URL,
+  },
+)
 export default defineEventHandler(async (event) => {
-  const { prompt, messages, isGoogle, APIKey } = await readBody<{
+  const { prompt, messages, APIKey } = await readBody<{
     prompt: string
     messages: Message[]
-    isGoogle?: boolean
     APIKey?: string
   }>(event)
 
   const { stream, handlers } = LangChainStream()
-
-  const { OPENAI_API_KEY, OPENAI_PROXY_URL, CHROMA_COLLECTION_NAME } = process.env
 
   const openaiApiKey = OPENAI_API_KEY || ''
 
@@ -34,15 +40,7 @@ export default defineEventHandler(async (event) => {
   const sanitizedQuestion = prompt.trim().replaceAll('\n', ' ')
   try {
     /* create vectorstore */
-    const vectorStore = await Chroma.fromExistingCollection(
-      new OpenAIEmbeddings(
-        {
-          openAIApiKey: APIKey || OPENAI_API_KEY,
-        },
-        {
-          basePath: OPENAI_PROXY_URL,
-        },
-      ),
+    const vectorStore = await Chroma.fromExistingCollection(embeddings,
       {
         collectionName: CHROMA_COLLECTION_NAME || 'my_collection',
       },

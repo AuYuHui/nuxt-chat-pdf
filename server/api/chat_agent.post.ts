@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     new Calculator(),
   ]
   const prefix = 'Answer the following questions as best you can. And answer according to the language of the user\'s question. You have access to the following tools:\n\nsearch: a search engine. useful for when you need to answer questions about current events. input should be a search query.\ncalculator:'
-  const suffix = `Begin! And answer according to the language of the user\'s question."
+  const suffix = `Begin! And answer according to the language of the user\'s question. "
 
 Question: {input}
 {agent_scratchpad}`
@@ -44,7 +44,7 @@ Question: {input}
 
     console.log(`Executing with input "${input}"...`)
 
-    const result = await agentExecutor.call({ input })
+    const result = await agentExecutor.call({ input: encodeURIComponent(input) })
     console.log('result', result)
 
     console.log(`Got output ${result.output}`)

@@ -6,18 +6,18 @@ import { ensureCollectionName } from '~/utils/utils'
 import { WebPageLoader } from '~/utils/loaders/web-page'
 
 export const runtime = 'edge'
-
+const embeddings = new OpenAIEmbeddings(
+  {
+    openAIApiKey: process.env.OPENAI_API_KEY,
+  },
+  {
+    basePath: process.env.OPENAI_PROXY_URL,
+  },
+)
 export default defineEventHandler(async (event) => {
   const { url } = await readBody<{ url: string }>(event)
   const web_page = new WebPageLoader()
-  const embeddings = new OpenAIEmbeddings(
-    {
-      openAIApiKey: process.env.OPENAI_API_KEY,
-    },
-    {
-      basePath: process.env.OPENAI_PROXY_URL,
-    },
-  )
+
   const datas = await web_page.load_data(url.trim())
   const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize: 500,
