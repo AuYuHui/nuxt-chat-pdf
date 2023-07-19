@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     chunkOverlap: 0,
     keepSeparator: false,
   })
-  const collectionName = ensureCollectionName()
+  const collectionName = ensureCollectionName(process.env.CHROMA_COLLECTION_NAME)
   const chroma = new Chroma(embeddings, { collectionName })
   await chroma.index?.reset()
   for (const data of datas) {

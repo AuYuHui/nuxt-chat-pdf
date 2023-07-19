@@ -23,6 +23,7 @@ async function fetchChatStream() {
       prompt: prompt.value,
       messages: currentChatHistory.value?.context || [],
       isGoogle: isGoogle.value,
+      collection: process.env.CHROMA_COLLECTION_NAME,
     }),
   })
   let result = ''

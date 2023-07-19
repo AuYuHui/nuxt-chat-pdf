@@ -21,6 +21,14 @@ const isCollapse = ref(true)
           </template>
         </el-menu-item>
       </NuxtLink>
+      <NuxtLink to="/draw">
+        <el-menu-item index="3">
+          <el-icon><ElIconPicture /></el-icon>
+          <template #title>
+            神笔马良(绘画版)
+          </template>
+        </el-menu-item>
+      </NuxtLink>
     </el-menu>
   </client-only>
 </template>

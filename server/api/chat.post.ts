@@ -9,7 +9,7 @@ import { LangChainStream, streamToResponse } from 'ai'
 import { makeChain } from '~/utils/makechain'
 
 export const runtime = 'edge'
-const { OPENAI_API_KEY, OPENAI_PROXY_URL, CHROMA_COLLECTION_NAME } = process.env
+const { OPENAI_API_KEY, OPENAI_PROXY_URL } = process.env
 
 const embeddings = new OpenAIEmbeddings(
   {
@@ -20,10 +20,11 @@ const embeddings = new OpenAIEmbeddings(
   },
 )
 export default defineEventHandler(async (event) => {
-  const { prompt, messages, APIKey } = await readBody<{
+  const { prompt, messages, APIKey, collection } = await readBody<{
     prompt: string
     messages: Message[]
     APIKey?: string
+    collection: string
   }>(event)
 
   const { stream, handlers } = LangChainStream()
@@ -42,7 +43,7 @@ export default defineEventHandler(async (event) => {
     /* create vectorstore */
     const vectorStore = await Chroma.fromExistingCollection(embeddings,
       {
-        collectionName: CHROMA_COLLECTION_NAME || 'my_collection',
+        collectionName: collection || 'my_collection',
       },
     )
 

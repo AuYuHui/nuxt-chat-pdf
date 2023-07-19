@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   } = await readFiles(event, {
     includeFields: true,
   })
-  const collectionName = ensureCollectionName()
+  const collectionName = ensureCollectionName(process.env.CHROMA_COLLECTION_NAME)
   await storeDocumentsInChroma(filepath, mimetype, collectionName)
   return {
     code: 0,

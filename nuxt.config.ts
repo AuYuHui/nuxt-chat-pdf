@@ -1,5 +1,6 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 const lifecycle = process.env.npm_lifecycle_event
+
 export default defineNuxtConfig({
   ssr: false,
   app: {
@@ -56,12 +57,26 @@ export default defineNuxtConfig({
     },
     server: {
       open: true,
+      proxy: {
+        '/picture': {
+          target: 'http://192.168.10.142:7861',
+          changeOrigin: true,
+          rewrite: (path: string) => path.replace(/^\/picture/, ''),
+        },
+      },
     },
   },
   elementPlus: {
     icon: 'ElIcon',
     importStyle: 'scss',
     themes: ['dark'],
+  },
+  postcss: {
+    plugins: {
+      '@unocss/postcss': {
+        content: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}'],
+      },
+    },
   },
 
   typescript: {
