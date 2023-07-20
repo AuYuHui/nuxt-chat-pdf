@@ -4,6 +4,7 @@ const lifecycle = process.env.npm_lifecycle_event
 export default defineNuxtConfig({
   ssr: false,
   app: {
+
     // head
     head: {
       title: 'Nuxt-Chat-PDF',
@@ -59,7 +60,7 @@ export default defineNuxtConfig({
       open: true,
       proxy: {
         '/picture': {
-          target: 'http://192.168.10.142:7861',
+          target: 'http://192.168.10.142:7860',
           changeOrigin: true,
           rewrite: (path: string) => path.replace(/^\/picture/, ''),
         },

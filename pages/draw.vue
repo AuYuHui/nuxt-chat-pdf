@@ -41,6 +41,7 @@ async function Generate() {
   if (!prompt.value)
     return
   loading.value = true
+  srcList.value = []
   const encoded_image = await download()
   const payload = {
     prompt: prompt.value,
@@ -93,6 +94,7 @@ function b64toBlob(b64Data: string, contentType = 'image/png', sliceSize = 512) 
   for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
     const slice = byteCharacters.slice(offset, offset + sliceSize)
 
+    // eslint-disable-next-line unicorn/no-new-array
     const byteNumbers = new Array(slice.length)
     for (let i = 0; i < slice.length; i++)
       byteNumbers[i] = slice.charCodeAt(i)
